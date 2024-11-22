@@ -1,25 +1,27 @@
 * {
     bg-col:  #eff1f5;
     bg-col-light: #eff1f5;
-    border-col: #eff1f5;
-    selected-col: #eff1f5;
+    border-col: #04a5e5;
+    selected-col: #ccd0da;
     blue: #1e66f5;
     fg-col: #4c4f69;
     fg-col2: #d20f39;
     grey: #9ca0b0;
-
     width: 600;
-    font: "JetBrainsMono Nerd Font 14";
+    font: "FiraCode Nerd Font 14";
 }
 
-element-text, element-icon , mode-switcher {
+element-text,
+element-icon,
+mode-switcher {
     background-color: inherit;
-    text-color:       inherit;
+    text-color: inherit;
 }
 
 window {
     height: 360px;
-    border: 3px;
+    border: 2px;
+    border-radius: 12px;
     border-color: @border-col;
     background-color: @bg-col;
 }
@@ -37,7 +39,7 @@ inputbar {
 
 prompt {
     background-color: @blue;
-    padding: 6px;
+    padding: 6px 12px;
     text-color: @bg-col;
     border-radius: 3px;
     margin: 20px 0px 0px 20px;
@@ -58,7 +60,7 @@ entry {
 listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
+    margin: 10px 20px 0px 20px;
     columns: 2;
     lines: 5;
     background-color: @bg-col;
@@ -67,7 +69,8 @@ listview {
 element {
     padding: 5px;
     background-color: @bg-col;
-    text-color: @fg-col  ;
+    text-color: @fg-col;
+    border-radius: 4px;
 }
 
 element-icon {
@@ -75,25 +78,25 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color: @selected-col;
+    text-color: @fg-col2;
 }
 
 mode-switcher {
     spacing: 0;
-  }
+}
 
 button {
     padding: 10px;
     background-color: @bg-col-light;
     text-color: @grey;
-    vertical-align: 0.5; 
+    vertical-align: 0.5;
     horizontal-align: 0.5;
 }
 
 button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+    background-color: @bg-col;
+    text-color: @blue;
 }
 
 message {
