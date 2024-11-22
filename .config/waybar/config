@@ -1,0 +1,85 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  // "width": 1280, // Waybar width
+  // Choose the order of the modules
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["custom/music"],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "clock",
+    "custom/lock",
+    "custom/logout"
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "sort-by-name": true,
+    "format": " {icon} ",
+    "format-icons": {
+      "default": "",
+    },
+  },
+  "custom/music": {
+    "format": "  {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ title }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 50
+  },
+  "clock": {
+    "timezone": "Asia/Ho_Chi_Minh",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+    "format-alt": " {:%d/%m/%Y}",
+    "format": " {:%H:%M}"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "network": {
+    "tooltip": true,
+    "format-wifi": "󰤨 {essid}",
+    "format-ethernet": "󰈀 ",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰤮 ",
+    "tooltip-format-disconnected": "Disconnected",
+    "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+    "interval": 2,
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-plugged": "󰂄",
+    "format-alt": "{icon}",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "],
+    },
+    "on-click": "pavucontrol",
+  },
+  "custom/lock": {
+    "tooltip": false,
+    "on-click": "hyprlock",
+    "format": "",
+  },
+  "custom/logout": {
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit",
+    "format": "󰍃",
+  },
+}
