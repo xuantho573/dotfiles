@@ -2,36 +2,15 @@
 
 * {
   font-family: FiraCode Nerd Font Mono;
-  font-size: 16px;
+  font-size: 12px;
   min-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #waybar {
   background: transparent;
   color: @text;
-  margin: 5px 5px;
-}
-
-#workspaces {
-  border-radius: 1rem;
-  margin: 1rem;
-  background-color: @surface0;
-}
-
-#workspaces button {
-  color: @rosewater;
-  border-radius: 1rem;
-  padding: 0.4rem;
-}
-
-#workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
-}
-
-#workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
 }
 
 #custom-music,
@@ -40,64 +19,68 @@
 #battery,
 #pulseaudio,
 #network,
+#tray,
 #custom-lock,
-#custom-logout {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
+#custom-logout,
+#custom-power,
+#custom-notification,
+#workspaces {
+  padding: 0 0.8rem;
   margin: 1rem 0;
+  background-color: @crust;
+}
+
+#workspaces {
+  border-radius: 0 8px 8px 0;
+  padding: 0;
+}
+
+#workspaces button {
+  color: @text;
+  border-radius: 0 8px 8px 0;
+  padding: 0 8px;
+}
+
+#workspaces button.active {
+  color: @sky;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 8px;
+}
+
+#network,
+#pulseaudio,
+#custom-notification {
+  color: @sky;
+}
+
+#network:hover,
+#pulseaudio:hover,
+#custom-notification:hover {
+  background-color: @surface0;
+  color: @text;
+}
+
+#custom-notification {
+  border-radius: 8px 0 0 8px;
 }
 
 #clock {
-  color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+  color: @flamingo;
 }
 
-#network {
-  color: @blue;
-  border-radius: 1rem;
-  /* margin-right: 1rem; */
-}
-
-#battery {
-  color: @green;
-}
-
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging) {
-  color: @red;
-}
-
-#backlight {
-  color: @yellow;
-}
-
-#backlight, #battery {
-  border-radius: 0;
-}
-
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+#tray {
+  color: @lavender;
 }
 
 #custom-music {
   color: @mauve;
-  border-radius: 1rem;
+  border-radius: 8px;
 }
 
-#custom-lock {
-  margin-right: 0;
-  border-radius: 1rem 0px 0px 1rem;
-  color: @sky;
-}
-
-#custom-logout {
-  margin-right: 1rem;
-  border-radius: 0px 1rem 1rem 0px;
+#custom-power {
   color: @red;
+  border-right: 2px solid @surface1;
 }
