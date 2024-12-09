@@ -4,13 +4,40 @@ return {
   config = function()
     local nvimtree = require("nvim-tree")
 
+    local HEIGHT_RATIO = 0.9
+    local WIDTH_RATIO = 0.3
+
     -- recommended settings from nvim-tree documentation
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
     nvimtree.setup({
       view = {
-        width = 35,
+        width = function()
+          return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+        end,
+        float = {
+          enable = true,
+          open_win_config = function()
+            local screen_w = vim.opt.columns:get()
+            local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+            local window_w = screen_w * WIDTH_RATIO
+            local window_h = screen_h * HEIGHT_RATIO
+            local window_w_int = math.floor(window_w)
+            local window_h_int = math.max(math.floor(window_h), 20)
+            local center_x = (screen_w - window_w) / 2
+            local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
+            return {
+              border = "rounded",
+              relative = "editor",
+              row = center_y,
+              -- col = center_x,
+              col = 0,
+              width = window_w_int,
+              height = window_h_int,
+            }
+          end,
+        },
       },
       -- change folder arrow icons
       renderer = {
@@ -61,7 +88,7 @@ return {
 
     require("which-key").add({
       mode = { "n" },
-      { "<leader>e", group = "explorer" },
+      { "<leader>e", group = "explorer", icon = "󰙅" },
       { "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file explorer" },
       { "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle file explorer on current file" },
       { "<leader>ec", "<cmd>NvimTreeCollapse<CR>", desc = "Collapse file explorer" },
