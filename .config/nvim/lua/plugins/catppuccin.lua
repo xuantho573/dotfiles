@@ -5,7 +5,7 @@ return {
   name = "catppuccin",
   config = function()
     require("catppuccin").setup({
-      flavour = "latte", -- latte, frappe, macchiato, mocha
+      flavour = "auto", -- latte, frappe, macchiato, mocha
       transparent_background = true,
       background = { -- :h background
         light = "latte",
