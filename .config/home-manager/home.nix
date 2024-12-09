@@ -38,6 +38,7 @@
       gcc14
       alsa-utils
       rofi-wayland
+      eza
     ];
   };
 
@@ -58,6 +59,11 @@
         eval "$(starship init zsh)"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
       '';
+      shellAliases = {
+        ls = "exa --icons";
+        la = "exa --icons --all";
+        lla = "exa --icons --long --all";
+      };
       plugins = [
         {
           name = "zsh-autosuggestions";
