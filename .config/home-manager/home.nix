@@ -38,7 +38,17 @@
       gcc14
       alsa-utils
       rofi-wayland
+      postgresql
+      pgadmin4
+      lazydocker
+      less
+      spicetify-cli
+      fd
       eza
+      wlogout
+      hypridle
+      pavucontrol
+      networkmanagerapplet
     ];
   };
 
