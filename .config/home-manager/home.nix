@@ -54,6 +54,9 @@
       enable = true;
       localVariables = {
         NVM_DIR = "$HOME/.nvm";
+        LC_ALL = "en_US.UTF-8";
+        LANG = "en_US.UTF-8";
+        XDG_CONFIG_HOME = "$HOME/.config";
       };
       initExtra = ''
         eval "$(starship init zsh)"
