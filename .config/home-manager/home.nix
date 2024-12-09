@@ -18,7 +18,11 @@
     stateVersion = "24.05"; # Please read the comment before changing.
     enableNixpkgsReleaseCheck = false;
     packages = with pkgs; [
+      # fonts
       (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       neofetch
       diff-so-fancy
       tldr
