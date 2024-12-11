@@ -94,4 +94,5 @@ style_user = "bold sky"
 disabled = false
 
 [os.symbols]
-Debian = "[ ](bold red)"
+Arch = "[ ](bold #1793d1)"
+Debian = "[ ](bold #a80030)"
