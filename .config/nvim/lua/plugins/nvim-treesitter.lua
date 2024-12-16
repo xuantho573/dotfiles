@@ -8,6 +8,7 @@ return {
       "tsx",
       "json",
       "yaml",
+      "http",
       "html",
       "css",
       "scss",
