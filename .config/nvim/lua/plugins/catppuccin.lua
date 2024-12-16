@@ -6,12 +6,12 @@ return {
   config = function()
     require("catppuccin").setup({
       flavour = "auto", -- latte, frappe, macchiato, mocha
-      transparent_background = true,
+      transparent_background = false,
       background = { -- :h background
         light = "latte",
         dark = "macchiato",
       },
-      -- term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
+      term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
       integrations = {
         cmp = true,
         gitsigns = true,
