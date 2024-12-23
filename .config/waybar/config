@@ -19,7 +19,7 @@
   "hyprland/workspaces": {
     "disable-scroll": true,
     "sort-by-name": true,
-    "format": "{icon}",
+    "format": "{id}",
     "format-icons": {
       "active": "●",
       "default": "○",
@@ -27,7 +27,7 @@
   },
   "hyprland/window": {
       "format": "{class} ... {title}",
-    },
+  },
   "custom/music": {
     "format": "  {}",
     "escape": true,
