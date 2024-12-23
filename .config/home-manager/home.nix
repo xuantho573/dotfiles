@@ -45,6 +45,8 @@
       spicetify-cli
       fd
       eza
+      tmux
+      tmuxifier
       wlogout
       hypridle
       pavucontrol
@@ -67,10 +69,22 @@
         LC_ALL = "en_US.UTF-8";
         LANG = "en_US.UTF-8";
         XDG_CONFIG_HOME = "$HOME/.config";
+        DISABLE_AUTO_TITLE = true;
+        VISUAL = "nvim";
+        EDITOR = "nvim";
       };
       initExtra = ''
         eval "$(starship init zsh)"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+        function y() {
+          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+          yazi "$@" --cwd-file="$tmp"
+          if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+        }
       '';
       shellAliases = {
         ls = "exa --icons";
