@@ -49,5 +49,6 @@ return {
       indent = { highlight = highlight, char = "│" },
       scope = { enabled = false, char = "┃" },
     })
+    vim.g.rainbow_delimiters.highlight = highlight
   end,
 }
