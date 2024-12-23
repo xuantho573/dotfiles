@@ -60,6 +60,7 @@ config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.window_background_opacity = 1
+config.hide_tab_bar_if_only_one_tab = true
 -- config.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
 -- config.integrated_title_button_style = 'Windows'
 -- config.integrated_title_button_alignment = "Left"
