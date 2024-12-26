@@ -88,7 +88,7 @@ return {
 
     require("which-key").add({
       mode = { "n" },
-      { "<leader>e", group = "explorer", icon = "󰙅" },
+      { "<leader>e", group = "explorer", icon = { icon = "󰙅", color = "green" } },
       { "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file explorer" },
       { "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle file explorer on current file" },
       { "<leader>ec", "<cmd>NvimTreeCollapse<CR>", desc = "Collapse file explorer" },
