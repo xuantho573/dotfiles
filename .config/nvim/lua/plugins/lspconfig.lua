@@ -94,6 +94,10 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    local mason_registry = require("mason-registry")
+    local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+      .. "/node_modules/@vue/language-server"
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
@@ -121,14 +125,23 @@ return {
         })
       end,
 
-      --[[
       ["ts_ls"] = function()
         -- configure typescript server (with special settings)
         lspconfig["ts_ls"].setup({
           capabilities = capabilities,
+          on_attach = on_attach,
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = vue_language_server_path,
+                languages = { "vue" },
+              },
+            },
+          },
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         })
       end,
-      ]]
     })
 
     -- lspconfig["ts_ls"].setup({})

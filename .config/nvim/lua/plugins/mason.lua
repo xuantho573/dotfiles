@@ -26,10 +26,12 @@ return {
 
       mason_lspconfig.setup({
         ensure_installed = {
-          "vtsls",
-          -- "volar",
-          "vuels",
+          -- "vtsls",
+          "ts_ls",
+          "volar",
+          -- "vuels",
           "tailwindcss",
+          "cssls",
         },
       })
 
