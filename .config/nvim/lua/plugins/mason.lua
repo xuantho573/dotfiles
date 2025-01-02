@@ -32,12 +32,14 @@ return {
           -- "vuels",
           "tailwindcss",
           "cssls",
+          "bashls",
         },
       })
 
       mason_tool_installer.setup({
         ensure_installed = {
           "eslint_d",
+          "shellcheck",
         },
       })
     end,
