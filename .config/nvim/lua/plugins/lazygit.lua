@@ -18,17 +18,16 @@ return {
     { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
   },
   config = function()
-    vim.g.lazygit_floating_window_winblend = 1
     vim.g.lazygit_use_custom_config_file_path = 1
     if vim.o.bg == "light" then
       vim.g.lazygit_config_file_path = {
-        "/home/xuantho573/.config/lazygit/config.yml",
-        "/home/xuantho573/.config/lazygit/catppuccin-latte-sky.yml",
+        vim.fn.expand("$HOME/.config/lazygit/config.yml"),
+        vim.fn.expand("$HOME/.config/lazygit/catppuccin-latte-sky.yml"),
       }
     else
       vim.g.lazygit_config_file_path = {
-        "/home/xuantho573/.config/lazygit/config.yml",
-        "/home/xuantho573/.config/lazygit/catppuccin-macchiato-sky.yml",
+        vim.fn.expand("$HOME/.config/lazygit/config.yml"),
+        vim.fn.expand("$HOME/.config/lazygit/catppuccin-macchiato-sky.yml"),
       }
     end
   end,
