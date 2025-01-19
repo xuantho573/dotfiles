@@ -16,12 +16,8 @@ return {
           return math.floor(vim.o.lines * 0.9)
         end,
       },
-      on_close = function()
-        vim.cmd.set("termguicolors")
-      end,
     })
     function _toggle_float_terminal()
-      vim.cmd.set("notermguicolors")
       floatTerminal:toggle()
     end
 
