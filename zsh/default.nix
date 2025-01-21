@@ -11,6 +11,7 @@
       VISUAL = "nvim";
       EDITOR = "nvim";
       LG_CONFIG_FILE = "$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_CONFIG_HOME/lazygit/catppuccin-latte-sky.yml";
+      BAT_THEME = "catppuccin-latte";
     };
     initExtra = '' ${builtins.readFile ./zshInitExtra.sh} '';
     shellAliases = {

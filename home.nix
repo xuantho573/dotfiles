@@ -68,7 +68,6 @@ in {
       fd
       eza
       jq
-      tmuxifier
       # pavucontrol
       # networkmanagerapplet
     ];

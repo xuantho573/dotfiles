@@ -3,10 +3,6 @@
 {
   programs.bat = {
     enable = true;
-    config = {
-      theme-light = "catppuccinLatte";
-      theme-dark = "catppuccinMacchiato";
-    };
     themes = let
       catppuccin = pkgs.fetchFromGitHub {
         owner = "catppuccin";
@@ -15,11 +11,11 @@
         sha256 = "6fWoCH90IGumAMc4buLRWL0N61op+AuMNN9CAR9/OdI=";
       };
     in {
-      catppuccinLatte = {
+      catppuccin-latte = {
         src = catppuccin;
         file = "themes/Catppuccin Latte.tmTheme";
       };
-      catppuccinMacchiato = {
+      catppuccin-macchiato = {
         src = catppuccin;
         file = "themes/Catppuccin Macchiato.tmTheme";
       };
