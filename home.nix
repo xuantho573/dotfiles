@@ -11,11 +11,7 @@ let
     inherit homeManagerDir;
     inherit lib;
     isDarwin = pkgs.lib.strings.hasSuffix "darwin" builtins.currentSystem;
-    makePath = subPath: config.lib.file.mkOutOfStoreSymlink (
-      homeManagerDir
-      + (removePrefix ./. path)
-      + (removePrefix path subPath)
-    );
+    makePath = subPath: config.lib.file.mkOutOfStoreSymlink (homeManagerDir + (removePrefix ./. subPath));
   };
 in {
   imports = [
