@@ -68,6 +68,7 @@ in {
       fd
       eza
       jq
+      dasel
       # pavucontrol
       # networkmanagerapplet
     ];

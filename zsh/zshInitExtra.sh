@@ -4,6 +4,9 @@ eval "$(starship init zsh)"
 function change_background() {
   local LG_DIR=$XDG_CONFIG_HOME/lazygit
   if [[ "$1" == "light" ]]; then
+    # Starship prompt
+    dasel put -f $XDG_CONFIG_HOME/starship.toml -v catppuccin_latte palette
+
     # Bat theme
     export BAT_THEME=catppuccin-latte
 
@@ -17,6 +20,9 @@ function change_background() {
       gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     fi
   elif [[ "$1" == "dark" ]]; then
+    # Starship prompt
+    dasel put -f $XDG_CONFIG_HOME/starship.toml -v catppuccin_macchiato palette
+
     # Bat theme
     export BAT_THEME=catppuccin-macchiato
 
