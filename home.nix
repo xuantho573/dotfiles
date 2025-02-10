@@ -13,6 +13,11 @@ let
     isDarwin = pkgs.lib.strings.hasSuffix "darwin" builtins.currentSystem;
     makePath = subPath: config.lib.file.mkOutOfStoreSymlink (homeManagerDir + (removePrefix ./. subPath));
   };
+  unfreePackages = with pkgs; [
+    obsidian
+    spotify
+    discord
+  ];
 in {
   imports = [
     (customImport ./bat)
@@ -36,6 +41,11 @@ in {
     (customImport ./zsh)
   ];
 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem
+      (lib.getName pkg)
+      (map lib.getName unfreePackages);
+
   home = {
     # Home Manager needs a bit of information about you and the paths it should manage.
     inherit username;
@@ -50,7 +60,7 @@ in {
     # release notes.
     stateVersion = "24.11"; # Please read the comment before changing.
     enableNixpkgsReleaseCheck = true;
-    packages = with pkgs; [
+    packages = unfreePackages ++ (with pkgs; [
       diff-so-fancy
       tldr
       ripgrep
@@ -65,9 +75,12 @@ in {
       eza
       jq
       dasel
+      unnaturalscrollwheels
+      musescore
+      syncthing
       # pavucontrol
       # networkmanagerapplet
-    ];
+    ]);
   };
 
   programs.home-manager.enable = true;
