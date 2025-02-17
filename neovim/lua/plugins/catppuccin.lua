@@ -24,9 +24,28 @@ return {
           indentscope_color = "",
         },
         rainbow_delimiters = true,
+        snacks = true,
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
       },
     })
+
+    vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
+      callback = function()
+        local palette
+        if vim.o.bg == "light" then
+          palette = require("catppuccin.palettes").get_palette("latte")
+        else
+          palette = require("catppuccin.palettes").get_palette("macchiato")
+        end
+
+        for name, hex in pairs(palette) do
+          local capitalizedName = name:gsub("^%l", string.upper)
+          vim.api.nvim_set_hl(0, "CatppuccinFg" .. capitalizedName, { fg = hex })
+          vim.api.nvim_set_hl(0, "CatppuccinBg" .. capitalizedName, { bg = hex })
+        end
+      end
+    })
+
     vim.cmd.colorscheme("catppuccin")
   end,
 }
