@@ -1,55 +1,33 @@
-{ config, pkgs, username, homeDirectory, homeManagerDir, lib, ... }:
+{ config, pkgs, lib, username, homeDirectory, homeManagerDir, ... }:
 
 let
+  isDarwin = pkgs.stdenv.isDarwin;
   removePrefix = dir: subDir: builtins.substring
     (builtins.stringLength (toString dir))
     (-1)
     (toString subDir)
   ;
-  customImport = path: import path {
-    inherit pkgs;
-    inherit homeManagerDir;
-    inherit lib;
-    isDarwin = pkgs.lib.strings.hasSuffix "darwin" builtins.currentSystem;
-    makePath = subPath: config.lib.file.mkOutOfStoreSymlink (homeManagerDir + (removePrefix ./. subPath));
+  mkSymlink = path: config.lib.file.mkOutOfStoreSymlink (homeManagerDir + (removePrefix ./. path));
+  mkConfigFileSymlink = path: recursive: {
+    source = mkSymlink path;
+    inherit recursive;
   };
-  unfreePackages = with pkgs; [
-    obsidian
-    spotify
-    discord
-  ];
+  importSubModule = path: import path { inherit pkgs lib homeManagerDir mkSymlink; };
+  importModule = path: import path { inherit pkgs lib isDarwin mkConfigFileSymlink importSubModule; };
 in {
   imports = [
-    (customImport ./bat)
-    (customImport ./btop)
-    (customImport ./docker)
-    (customImport ./fcitx5)
-    (customImport ./font)
-    (customImport ./git)
-    (customImport ./hypr)
-    (customImport ./kitty)
-    (customImport ./neofetch)
-    (customImport ./neovim)
-    (customImport ./rofi)
-    (customImport ./starship)
-    (customImport ./swaync)
-    (customImport ./tmux)
-    (customImport ./waybar)
-    (customImport ./wezterm)
-    (customImport ./wlogout)
-    (customImport ./yazi)
-    (customImport ./zsh)
+    (importModule ./module-shared.nix)
+    (importModule ./module-linux.nix)
+    (importModule ./module-darwin.nix)
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem
-      (lib.getName pkg)
-      (map lib.getName unfreePackages);
+  xdg.enable = true;
+  programs.home-manager.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   home = {
     # Home Manager needs a bit of information about you and the paths it should manage.
-    inherit username;
-    inherit homeDirectory;
+    inherit username homeDirectory;
 
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
@@ -60,29 +38,5 @@ in {
     # release notes.
     stateVersion = "24.11"; # Please read the comment before changing.
     enableNixpkgsReleaseCheck = true;
-    packages = unfreePackages ++ (with pkgs; [
-      diff-so-fancy
-      tldr
-      ripgrep
-      fzf
-      gcc14
-      # alsa-utils
-      postgresql
-      pgadmin4
-      less
-      spicetify-cli
-      fd
-      eza
-      jq
-      dasel
-      unnaturalscrollwheels
-      musescore
-      syncthing
-      # pavucontrol
-      # networkmanagerapplet
-    ]);
   };
-
-  programs.home-manager.enable = true;
-  xdg.enable = true;
 }

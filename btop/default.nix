@@ -10,6 +10,8 @@ let
 in {
   home.packages = [pkgs.btop];
 
-  xdg.configFile."btop/themes/catppuccin_latte.theme".source = catppuccin + "/themes/catppuccin_latte.theme";
-  xdg.configFile."btop/themes/catppuccin_macchiato.theme".source = catppuccin + "/themes/catppuccin_macchiato.theme";
+  xdg.configFile = {
+    "btop/themes/catppuccin_latte.theme".source = catppuccin + "/themes/catppuccin_latte.theme";
+    "btop/themes/catppuccin_macchiato.theme".source = catppuccin + "/themes/catppuccin_macchiato.theme";
+  };
 }

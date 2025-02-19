@@ -19,12 +19,7 @@
     in {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit homeDirectory;
-          inherit homeManagerDir;
-        };
+        extraSpecialArgs = { inherit inputs username homeDirectory homeManagerDir; };
         modules = [./home.nix];
       };
     };
