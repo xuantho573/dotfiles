@@ -3,6 +3,7 @@ return {
   version = "2.20.0",
   ---@type snacks.Config
   opts = {
-    lazygit = require("plugins.snacks.lazygit")
+    dashboard = require("plugins.snacks.dashboard"),
+    lazygit = require("plugins.snacks.lazygit"),
   },
 }
