@@ -43,6 +43,8 @@ return {
           vim.api.nvim_set_hl(0, "CatppuccinFg" .. capitalizedName, { fg = hex })
           vim.api.nvim_set_hl(0, "CatppuccinBg" .. capitalizedName, { bg = hex })
         end
+
+        vim.api.nvim_set_hl(0, "TabLineSel",  { bg = palette.sky })
       end
     })
 
