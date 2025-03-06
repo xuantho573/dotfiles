@@ -8,15 +8,12 @@ let
     (toString subDir)
   ;
   mkSymlink = path: config.lib.file.mkOutOfStoreSymlink (homeManagerDir + (removePrefix ./. path));
-  mkConfigFileSymlink = path: {
-    source = mkSymlink path;
-  };
   mkConfigDirSymlink = path: {
     source = mkSymlink path;
     recursive = true;
   };
   importSubModule = path: import path { inherit pkgs lib homeManagerDir mkSymlink; };
-  importModule = path: import path { inherit pkgs lib isDarwin mkConfigFileSymlink mkConfigDirSymlink importSubModule; };
+  importModule = path: import path { inherit pkgs lib isDarwin mkConfigDirSymlink importSubModule; };
 in {
   imports = [
     (importModule ./module-common.nix)
