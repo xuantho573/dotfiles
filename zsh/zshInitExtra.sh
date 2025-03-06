@@ -1,6 +1,8 @@
 eval "$(starship init zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
+
 function change_background() {
   local LG_DIR=$XDG_CONFIG_HOME/lazygit
   if [[ "$1" == "light" ]]; then
