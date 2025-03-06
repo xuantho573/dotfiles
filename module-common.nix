@@ -1,4 +1,4 @@
-{ pkgs, lib, mkConfigFileSymlink, importSubModule, ... }:
+{ pkgs, lib, mkConfigDirSymlink, importSubModule, ... }:
 
 {
   imports = [
@@ -42,13 +42,13 @@
   ];
 
   xdg.configFile = {
-    lazydocker = mkConfigFileSymlink ./lazydocker true;
-    lazygit = mkConfigFileSymlink ./lazygit true;
-    kitty = mkConfigFileSymlink ./kitty true;
-    neofetch = mkConfigFileSymlink ./neofetch true;
-    nvim = mkConfigFileSymlink ./neovim true;
-    "starship.toml" = mkConfigFileSymlink ./starship/starship.toml false;
-    wezterm = mkConfigFileSymlink ./wezterm true;
-    yazi = mkConfigFileSymlink ./yazi true;
+    lazydocker = mkConfigDirSymlink ./lazydocker;
+    lazygit = mkConfigDirSymlink ./lazygit;
+    kitty = mkConfigDirSymlink ./kitty;
+    neofetch = mkConfigDirSymlink ./neofetch;
+    nvim = mkConfigDirSymlink ./neovim;
+    starship = mkConfigDirSymlink ./starship;
+    wezterm = mkConfigDirSymlink ./wezterm;
+    yazi = mkConfigDirSymlink ./yazi;
   };
 }
