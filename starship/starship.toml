@@ -2,7 +2,7 @@
 add_newline = true
 continuation_prompt = '[❯❯ ](bold green)'
 format = '$os$username$hostname$localip$shlvl$singularity$kubernetes$directory$vcsh$fossil_branch$fossil_metrics$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$pijul_channel$package$fill$all'
-palette = 'catppuccin_latte'
+palette = 'catppuccin-latte'
 
 [character]
   error_symbol = '[❯](bold red)'
@@ -35,7 +35,7 @@ palette = 'catppuccin_latte'
   disabled = true
 
 [palettes]
-  [palettes.catppuccin_latte]
+  [palettes.catppuccin-latte]
     base = '#eff1f5'
     blue = '#1e66f5'
     crust = '#dce0e8'
@@ -63,7 +63,7 @@ palette = 'catppuccin_latte'
     text = '#4c4f69'
     yellow = '#df8e1d'
 
-  [palettes.catppuccin_macchiato]
+  [palettes.catppuccin-macchiato]
     base = '#24273a'
     blue = '#8aadf4'
     crust = '#181926'
