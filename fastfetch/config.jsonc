@@ -1,0 +1,134 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty-icat",
+    "source": "~/Downloads/jennie_ava.jpg",
+    "width": 40
+  },
+  "display": {
+    "key": {
+      "type": "icon",
+      "width": 7,
+      "paddingLeft": 2
+    },
+    "separator": " "
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "┏━━━━━━━━━━━ Software Info ━━━━━━━━━━━━━━━",
+      "outputColor": "cyan"
+    },
+    "break",
+
+    {
+      "type": "os",
+      "keyColor": "blue"
+    },
+    {
+      "type": "host",
+      "keyColor": "blue"
+    },
+    {
+      "type": "kernel",
+      "keyColor": "blue"
+    },
+    {
+      "type": "shell",
+      "keyColor": "blue"
+    },
+    {
+      "type": "packages",
+      "keyColor": "blue"
+    },
+
+    "break",
+
+    {
+      "type": "terminal",
+      "keyColor": "green"
+    },
+
+    "break",
+
+    {
+      "type": "display",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "de",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "wm",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "wmtheme",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "icons",
+      "keyColor": "yellow"
+    },
+    // {
+    //   "type": "font",
+    //   "keyColor": "yellow"
+    // },
+    // {
+    //   "type": "cursor",
+    //   "keyColor": "yellow"
+    // },
+
+    "break",
+    {
+      "type": "custom",
+      "format": "┣━━━━━━━━━━ Hardware Info ━━━━━━━━━━━━━━━"
+    },
+    "break",
+
+    {
+      "type": "cpu",
+      "keyColor": "red"
+    },
+    {
+      "type": "gpu",
+      "keyColor": "red"
+    },
+    {
+      "type": "memory",
+      "keyColor": "red"
+    },
+    {
+      "type": "disk",
+      "format": "{size-used} / {size-total} ({size-percentage})",
+      "keyColor": "red"
+    },
+    {
+      "type": "battery",
+      "keyColor": "red"
+    },
+    // {
+    //   "type": "poweradapter",
+    //   "keyColor": "red"
+    // },
+
+    "break",
+
+    {
+      "type": "uptime",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "users",
+      "format": "{name}",
+      "keyColor": "magenta"
+    },
+
+    "break",
+    {
+      "type": "custom",
+      "format": "┗━━━━━ {#30}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37}  {#cyan}━━━━━━━━━━"
+    }
+  ]
+}

@@ -35,7 +35,7 @@
     lazydocker
     lazygit
     kitty
-    neofetch
+    fastfetch
     neovim
     starship
     yazi
@@ -45,7 +45,7 @@
     lazydocker = mkConfigDirSymlink ./lazydocker;
     lazygit = mkConfigDirSymlink ./lazygit;
     kitty = mkConfigDirSymlink ./kitty;
-    neofetch = mkConfigDirSymlink ./neofetch;
+    fastfetch = mkConfigDirSymlink ./fastfetch;
     nvim = mkConfigDirSymlink ./neovim;
     starship = mkConfigDirSymlink ./starship;
     wezterm = mkConfigDirSymlink ./wezterm;
