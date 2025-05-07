@@ -8,7 +8,7 @@ local LIGHT_THEME_WITH_ACCENT=catppuccin-latte-sky
 local DARK_THEME_WITH_ACCENT=catppuccin-macchiato-sky
 
 # Starship
-export STARSHIP_CONFIG_FILE=$XDG_CONFIG_HOME/starship/starship.toml
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 
 # Bat
 export BAT_THEME=$LIGHT_THEME
@@ -44,7 +44,7 @@ function change_background() {
     return
   fi
 
-  dasel put -f $STARSHIP_CONFIG_FILE -v $theme palette
+  dasel put -f $STARSHIP_CONFIG -v $theme palette
   export BAT_THEME=$theme
   export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$theme_with_accent.yml
 }
