@@ -9,6 +9,14 @@
     (importSubModule ./zsh)
   ];
 
+  programs.zathura = {
+    enable = true;
+    options = {
+      useMupdf = false;
+      "selection-clipboard" = "clipboard";
+    };
+  };
+
   home.packages = with pkgs; [
     discord
     obsidian
