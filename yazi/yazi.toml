@@ -1,0 +1,9 @@
+[opener]
+pdf = [
+  { run = 'zathura "$@"', block = false, orphan = true, for = 'unix' }
+]
+
+[open]
+rules = [
+  { name = '*.pdf', use = 'pdf' }
+]
