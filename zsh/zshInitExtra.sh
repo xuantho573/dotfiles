@@ -1,37 +1,39 @@
 eval "$(starship init zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
+# THEME
+local LIGHT_THEME=catppuccin-latte
+local DARK_THEME=catppuccin-macchiato
+local LIGHT_THEME_WITH_ACCENT=catppuccin-latte-sky
+local DARK_THEME_WITH_ACCENT=catppuccin-macchiato-sky
+
+# Starship
+export STARSHIP_CONFIG_FILE=$XDG_CONFIG_HOME/starship/starship.toml
+
+# Bat
+export BAT_THEME=$LIGHT_THEME
+
+# Lazygit
+local LG_DIR=$XDG_CONFIG_HOME/lazygit
+export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$LIGHT_THEME_WITH_ACCENT.yml
 
 function change_background() {
-  local LG_DIR=$XDG_CONFIG_HOME/lazygit
+  local theme
+  local theme_with_accent
+
   if [[ "$1" == "light" ]]; then
-    # Starship prompt
-    dasel put -f $XDG_CONFIG_HOME/starship.toml -v catppuccin_latte palette
+    theme=$LIGHT_THEME
+    theme_with_accent=$LIGHT_THEME_WITH_ACCENT
 
-    # Bat theme
-    export BAT_THEME=catppuccin-latte
-
-    # Lazygit
-    export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/catppuccin-latte-sky.yml
-
-    # System
     if [[ "$OSTYPE" == "darwin"* ]]; then
       osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = false"
     else
       gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     fi
   elif [[ "$1" == "dark" ]]; then
-    # Starship prompt
-    dasel put -f $XDG_CONFIG_HOME/starship.toml -v catppuccin_macchiato palette
+    theme=$DARK_THEME
+    theme_with_accent=$DARK_THEME_WITH_ACCENT
 
-    # Bat theme
-    export BAT_THEME=catppuccin-macchiato
-
-    # Lazygit
-    export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/catppuccin-macchiato-sky.yml
-
-    # System
     if [[ "$OSTYPE" == "darwin"* ]]; then
       osascript -l JavaScript -e "Application('System Events').appearancePreferences.darkMode = true"
     else
@@ -39,7 +41,12 @@ function change_background() {
     fi
   else
     echo "Please provide 'light' or 'dark'."
+    return
   fi
+
+  dasel put -f $STARSHIP_CONFIG_FILE -v $theme palette
+  export BAT_THEME=$theme
+  export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$theme_with_accent.yml
 }
 
 function y() {
