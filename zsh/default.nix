@@ -7,14 +7,12 @@
       NVM_DIR = "$HOME/.nvm";
       LC_ALL = "en_US.UTF-8";
       LANG = "en_US.UTF-8";
-      DISABLE_AUTO_TITLE = true;
       VISUAL = "nvim";
       EDITOR = "nvim";
-      LG_CONFIG_FILE = "$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_CONFIG_HOME/lazygit/catppuccin-latte-sky.yml";
-      BAT_THEME = "catppuccin-latte";
     };
     initExtra = '' ${builtins.readFile ./zshInitExtra.sh} '';
     shellAliases = {
+      ff = "fastfetch";
       ls = "exa --icons";
       la = "exa --icons --all";
       lla = "exa --icons --long --all";
