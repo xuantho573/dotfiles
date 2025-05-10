@@ -131,6 +131,17 @@ return {
           filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         })
       end,
+
+      ["volar"] = function ()
+        lspconfig["volar"].setup({
+          capabilities = capabilities,
+          init_options = {
+            vue = {
+              hybridMode = true,
+            },
+          },
+        })
+      end
     })
   end,
 }
