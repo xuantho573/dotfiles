@@ -55,6 +55,7 @@
 
     nixd
     nixfmt-rfc-style
+
     typescript
     typescript-language-server
     vue-language-server
@@ -66,6 +67,9 @@
     bash-language-server
     shellcheck-minimal
     shfmt
+
+    lua-language-server
+    stylua
   ];
 
   xdg.configFile = {

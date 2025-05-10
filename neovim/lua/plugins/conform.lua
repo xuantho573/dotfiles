@@ -6,6 +6,7 @@ return {
       nix = { "nixfmt" },
       sh = { "shfmt" },
       zsh = { "shfmt" },
+      lua = { "stylua" },
     },
   },
 }
