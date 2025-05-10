@@ -9,18 +9,32 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
       system = builtins.currentSystem;
       pkgs = nixpkgs.legacyPackages.${system};
       username = builtins.getEnv "USER";
       homeDirectory = builtins.getEnv "HOME";
       homeManagerDir = homeDirectory + "/projects/personal/dotfiles";
-    in {
+    in
+    {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs username homeDirectory homeManagerDir; };
-        modules = [./home.nix];
+        extraSpecialArgs = {
+          inherit
+            inputs
+            username
+            homeDirectory
+            homeManagerDir
+            ;
+        };
+        modules = [ ./home.nix ];
       };
     };
 }

@@ -1,4 +1,10 @@
-{ pkgs, lib, isDarwin, mkConfigDirSymlink, ... }:
+{
+  pkgs,
+  lib,
+  isDarwin,
+  mkConfigDirSymlink,
+  ...
+}:
 
 lib.mkIf (!isDarwin) {
   home.packages = with pkgs; [
@@ -13,7 +19,7 @@ lib.mkIf (!isDarwin) {
     wlogout
   ];
 
-  xdg.configFile =  {
+  xdg.configFile = {
     fcitx5 = mkConfigDirSymlink ./fcitx5;
     hypr = mkConfigDirSymlink ./hypr;
     rofi = mkConfigDirSymlink ./rofi;

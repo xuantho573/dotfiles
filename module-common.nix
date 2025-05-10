@@ -1,4 +1,9 @@
-{ pkgs, lib, mkConfigDirSymlink, importSubModule, ... }:
+{
+  pkgs,
+  mkConfigDirSymlink,
+  importSubModule,
+  ...
+}:
 
 {
   imports = [
@@ -47,6 +52,9 @@
     neovim
     starship
     yazi
+
+    nixd
+    nixfmt-rfc-style
   ];
 
   xdg.configFile = {
@@ -60,6 +68,3 @@
     yazi = mkConfigDirSymlink ./yazi;
   };
 }
-
-    nixd
-    nixfmt-rfc-style

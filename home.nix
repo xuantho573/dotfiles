@@ -1,20 +1,45 @@
-{ config, pkgs, lib, username, homeDirectory, homeManagerDir, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  username,
+  homeDirectory,
+  homeManagerDir,
+  ...
+}:
 
 let
   isDarwin = pkgs.stdenv.isDarwin;
-  removePrefix = dir: subDir: builtins.substring
-    (builtins.stringLength (toString dir))
-    (-1)
-    (toString subDir)
-  ;
+  removePrefix =
+    dir: subDir: builtins.substring (builtins.stringLength (toString dir)) (-1) (toString subDir);
   mkSymlink = path: config.lib.file.mkOutOfStoreSymlink (homeManagerDir + (removePrefix ./. path));
   mkConfigDirSymlink = path: {
     source = mkSymlink path;
     recursive = true;
   };
-  importSubModule = path: import path { inherit pkgs lib homeManagerDir mkSymlink; };
-  importModule = path: import path { inherit pkgs lib isDarwin mkConfigDirSymlink importSubModule; };
-in {
+  importSubModule =
+    path:
+    import path {
+      inherit
+        pkgs
+        lib
+        homeManagerDir
+        mkSymlink
+        ;
+    };
+  importModule =
+    path:
+    import path {
+      inherit
+        pkgs
+        lib
+        isDarwin
+        mkConfigDirSymlink
+        importSubModule
+        ;
+    };
+in
+{
   imports = [
     (importModule ./module-common.nix)
     (importModule ./module-linux.nix)
