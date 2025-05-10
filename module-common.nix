@@ -62,6 +62,10 @@
 
     tailwindcss-language-server
     vscode-langservers-extracted
+
+    bash-language-server
+    shellcheck-minimal
+    shfmt
   ];
 
   xdg.configFile = {

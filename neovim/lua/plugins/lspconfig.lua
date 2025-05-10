@@ -119,6 +119,11 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig["bashls"].setup({
+      capabilities = capabilities,
+      filetypes = { "bash", "sh", "zsh" },
+    })
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
