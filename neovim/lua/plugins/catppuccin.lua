@@ -19,7 +19,6 @@ return {
         nvimtree = true,
         treesitter = true,
         notify = false,
-        mason = true,
         mini = {
           enabled = true,
           indentscope_color = "",
@@ -46,8 +45,8 @@ return {
           vim.api.nvim_set_hl(0, "CatppuccinBg" .. capitalizedName, { bg = hex })
         end
 
-        vim.api.nvim_set_hl(0, "TabLineSel",  { bg = palette.sky })
-      end
+        vim.api.nvim_set_hl(0, "TabLineSel", { bg = palette.sky })
+      end,
     })
 
     vim.cmd.colorscheme("catppuccin")
