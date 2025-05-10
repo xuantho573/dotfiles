@@ -60,3 +60,6 @@
     yazi = mkConfigDirSymlink ./yazi;
   };
 }
+
+    nixd
+    nixfmt-rfc-style

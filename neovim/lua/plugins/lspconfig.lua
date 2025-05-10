@@ -69,6 +69,26 @@ return {
     local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
       .. "/node_modules/@vue/language-server"
 
+    lspconfig["nixd"].setup({
+      capabilities = capabilities,
+      cmd = { "nixd" },
+      settings = {
+        nixd = {
+          nixpkgs = {
+            expr = "import <nixpkgs> { }",
+          },
+          formatting = {
+            command = { "nixfmt" },
+          },
+          options = {
+            home_manager = {
+              expr = "(builtins.getFlake (\"git+file://\" + toString ./.)).homeConfigurations." .. os.getenv("USER") .. ".options",
+            },
+          },
+        },
+      },
+    })
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)

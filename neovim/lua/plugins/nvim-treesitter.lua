@@ -6,6 +6,7 @@ return {
       ensure_installed = {
         "bash",
         "lua",
+        "nix",
         "javascript",
         "typescript",
         "tsx",
