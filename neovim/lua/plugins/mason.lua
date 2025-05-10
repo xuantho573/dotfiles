@@ -26,8 +26,6 @@ return {
 
       mason_lspconfig.setup({
         ensure_installed = {
-          "tailwindcss",
-          "cssls",
           "bashls",
         },
       })

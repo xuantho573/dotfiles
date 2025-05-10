@@ -111,6 +111,14 @@ return {
       },
     })
 
+    lspconfig["cssls"].setup({
+      capabilities = capabilities,
+    })
+
+    lspconfig["tailwindcss"].setup({
+      capabilities = capabilities,
+    })
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)

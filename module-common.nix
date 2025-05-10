@@ -59,6 +59,9 @@
     typescript-language-server
     vue-language-server
     eslint_d
+
+    tailwindcss-language-server
+    vscode-langservers-extracted
   ];
 
   xdg.configFile = {
