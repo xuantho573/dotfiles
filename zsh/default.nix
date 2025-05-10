@@ -10,7 +10,11 @@
       VISUAL = "nvim";
       EDITOR = "nvim";
     };
-    initExtra = '' ${builtins.readFile ./zshInitExtra.sh} '';
+    sessionVariables = {
+      NIX_PROFILE = "$HOME/.nix-profile";
+    };
+    history.append = true;
+    initExtra = ''${builtins.readFile ./zshInitExtra.sh} '';
     shellAliases = {
       ff = "fastfetch";
       ls = "exa --icons";

@@ -26,10 +26,6 @@ return {
 
       mason_lspconfig.setup({
         ensure_installed = {
-          -- "vtsls",
-          "ts_ls",
-          "volar",
-          -- "vuels",
           "tailwindcss",
           "cssls",
           "bashls",
@@ -38,7 +34,6 @@ return {
 
       mason_tool_installer.setup({
         ensure_installed = {
-          "eslint_d",
           "shellcheck",
         },
       })

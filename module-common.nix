@@ -55,6 +55,10 @@
 
     nixd
     nixfmt-rfc-style
+    typescript
+    typescript-language-server
+    vue-language-server
+    eslint_d
   ];
 
   xdg.configFile = {

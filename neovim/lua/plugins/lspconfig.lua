@@ -65,10 +65,6 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    local mason_registry = require("mason-registry")
-    local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-      .. "/node_modules/@vue/language-server"
-
     lspconfig["nixd"].setup({
       capabilities = capabilities,
       cmd = { "nixd" },
@@ -85,6 +81,32 @@ return {
               expr = "(builtins.getFlake (\"git+file://\" + toString ./.)).homeConfigurations." .. os.getenv("USER") .. ".options",
             },
           },
+        },
+      },
+    })
+
+    lspconfig["ts_ls"].setup({
+      capabilities = capabilities,
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vim.fs.joinpath(os.getenv("NIX_PROFILE"), 'lib/node_modules/@vue/language-server'),
+            languages = { "vue" },
+          },
+        },
+      },
+      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+    })
+
+    lspconfig["volar"].setup({
+      capabilities = capabilities,
+      init_options = {
+        vue = {
+          hybridMode = true,
+        },
+        typescript = {
+          tsdk = vim.fs.joinpath(os.getenv("NIX_PROFILE"), 'lib/node_modules/typescript/lib'),
         },
       },
     })
@@ -114,34 +136,6 @@ return {
           },
         })
       end,
-
-      ["ts_ls"] = function()
-        -- configure typescript server (with special settings)
-        lspconfig["ts_ls"].setup({
-          capabilities = capabilities,
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = vue_language_server_path,
-                languages = { "vue" },
-              },
-            },
-          },
-          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-        })
-      end,
-
-      ["volar"] = function ()
-        lspconfig["volar"].setup({
-          capabilities = capabilities,
-          init_options = {
-            vue = {
-              hybridMode = true,
-            },
-          },
-        })
-      end
     })
   end,
 }
