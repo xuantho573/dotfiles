@@ -1,5 +1,6 @@
 return {
   "f-person/auto-dark-mode.nvim",
+  commit = "c31de12",
   opts = {
     set_dark_mode = function()
       vim.cmd("set bg=dark")
