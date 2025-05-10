@@ -1,11 +1,17 @@
 eval "$(starship init zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+GROQ_API_KEY=$(op read "op://Private/Groq/API key")
+GEMINI_API_KEY=$(op read "op://Private/Google AI/API key")
+
+export GROQ_API_KEY
+export GEMINI_API_KEY
+
 # THEME
-local LIGHT_THEME=catppuccin-latte
-local DARK_THEME=catppuccin-macchiato
-local LIGHT_THEME_WITH_ACCENT=catppuccin-latte-sky
-local DARK_THEME_WITH_ACCENT=catppuccin-macchiato-sky
+LIGHT_THEME=catppuccin-latte
+DARK_THEME=catppuccin-macchiato
+LIGHT_THEME_WITH_ACCENT=catppuccin-latte-sky
+DARK_THEME_WITH_ACCENT=catppuccin-macchiato-sky
 
 # Starship
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
@@ -14,7 +20,7 @@ export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 export BAT_THEME=$LIGHT_THEME
 
 # Lazygit
-local LG_DIR=$XDG_CONFIG_HOME/lazygit
+LG_DIR=$XDG_CONFIG_HOME/lazygit
 export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$LIGHT_THEME_WITH_ACCENT.yml
 
 function change_background() {
@@ -44,16 +50,17 @@ function change_background() {
     return
   fi
 
-  dasel put -f $STARSHIP_CONFIG -v $theme palette
+  dasel put -f "$STARSHIP_CONFIG" -v $theme palette
   export BAT_THEME=$theme
   export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$theme_with_accent.yml
 }
 
 function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  local tmp
+  tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
   if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd"
+    builtin cd -- "$cwd" || exit
   fi
   rm -f -- "$tmp"
 }
