@@ -3,4 +3,5 @@ return {
   require("plugins.mini.diff"),
   require("plugins.mini.icons"),
   require("plugins.mini.pairs"),
+  require("plugins.mini.splitjoin"),
 }
