@@ -2,6 +2,7 @@ local dashboard = require("plugins.snacks.dashboard")
 local indent = require('plugins.snacks.indent')
 local lazygit = require("plugins.snacks.lazygit")
 local picker = require('plugins.snacks.picker')
+  statuscolumn = { opts = {} },
 
 return {
   "folke/snacks.nvim",
