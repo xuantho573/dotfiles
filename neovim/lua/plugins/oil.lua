@@ -1,7 +1,7 @@
 local remove_backdrops
 
-local function wrap_remove_backdrops (func)
-  return function  ()
+local function wrap_remove_backdrops(func)
+  return function()
     remove_backdrops()
     func()
   end
@@ -34,7 +34,7 @@ return {
       },
       keymaps = {},
     },
-    config = function (_, opts)
+    config = function(_, opts)
       local oil = require("oil")
 
       remove_backdrops = require("utils.backdrop-float-window").add_backdrop_for_float_window({
@@ -46,6 +46,7 @@ return {
 
       local wrapped_keymaps = {
         ["<C-c>"] = { wrap_remove_backdrops(oil.close), mode = "n", desc = "Close oil and restore original buffer" },
+        ["q"] = { wrap_remove_backdrops(oil.close), mode = "n", desc = "Close oil and restore original buffer" },
         ["<CR>"] = { wrap_remove_backdrops(oil.select), mode = "n", desc = "Open the entry under the cursor" },
       }
 
