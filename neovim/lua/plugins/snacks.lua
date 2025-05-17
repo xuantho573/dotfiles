@@ -1,12 +1,14 @@
 local dashboard = require("plugins.snacks.dashboard")
 local indent = require("plugins.snacks.indent")
 local lazygit = require("plugins.snacks.lazygit")
+local notifier = require("plugins.snacks.notifier")
 local picker = require("plugins.snacks.picker")
 
 local modules = {
   dashboard = dashboard,
   indent = indent,
   lazygit = lazygit,
+  notifier = notifier,
   picker = picker,
   statuscolumn = { opts = {} },
 }
