@@ -9,11 +9,9 @@ return {
     },
     icons = {
       rules = {
-        { plugin = "nvim-tree.lua", icon = "󰙅", hl = "CatppuccinFgGreen" },
+        { plugin = "oil.nvim", icon = "󰏇 ", hl = "CatppuccinFgFlamingo" },
       },
     },
-    spec = {
-      { "<leader>e", group = "explorer", mode = "n", icon = { icon = "󰙅", hl = "CatppuccinFgGreen" } },
-    },
+    spec = {},
   },
 }

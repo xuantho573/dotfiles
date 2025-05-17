@@ -13,11 +13,10 @@ return {
     version = "2.15.0",
     -- Optional dependencies
     dependencies = "echasnovski/mini.icons",
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
     keys = {
-      { "<leader>e", "<cmd>Oil --float<cr>", desc = "File Explorer" },
+      { "<leader>e", "<cmd>Oil --float<cr>", desc = "Oil" },
     },
     ---@module "oil"
     ---@type oil.SetupOpts
