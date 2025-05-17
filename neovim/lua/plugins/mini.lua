@@ -4,4 +4,5 @@ return {
   require("plugins.mini.icons"),
   require("plugins.mini.pairs"),
   require("plugins.mini.splitjoin"),
+  require("plugins.mini.surround"),
 }
