@@ -17,6 +17,8 @@ return {
         "css",
         "scss",
         "vue",
+        "markdown",
+        "markdown_inline",
       },
       ignore_install = {},
       highlight = {
@@ -31,5 +33,5 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     commit = "0e3be38",
     dependencies = "nvim-treesitter/nvim-treesitter",
-  }
+  },
 }

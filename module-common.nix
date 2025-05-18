@@ -26,6 +26,7 @@
     discord
     obsidian
     spotify
+    _1password-cli
 
     diff-so-fancy
     tldr
@@ -42,6 +43,7 @@
     dasel
     musescore
     syncthing
+    cargo
 
     colima
     docker
