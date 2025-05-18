@@ -2,6 +2,22 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 
+vim.diagnostic.config({
+  float = { border = "rounded" },
+})
+
+vim
+  .iter({
+    Error = " ",
+    Warn = " ",
+    Hint = "󰠠 ",
+    Info = " ",
+  })
+  :each(function(type, icon)
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+  end)
+
 local opt = vim.opt
 
 opt.relativenumber = true
