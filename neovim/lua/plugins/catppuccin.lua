@@ -14,11 +14,13 @@ return {
       },
       term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
       integrations = {
+        blink_cmp = true,
         cmp = true,
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
         notify = false,
+        noice = true,
         mini = {
           enabled = true,
           indentscope_color = "",

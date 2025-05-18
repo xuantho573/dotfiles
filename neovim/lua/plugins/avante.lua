@@ -9,7 +9,6 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "MeanderingProgrammer/render-markdown.nvim",
-    "hrsh7th/nvim-cmp",
     "nvim-tree/nvim-web-devicons",
     "echasnovski/mini.icons",
     {
