@@ -5,8 +5,9 @@
     enable = true;
     defaultFonts = {
       monospace = [
-        "Fira Code"
+        "JetBrains Mono NL"
         "JetBrains Mono"
+        "Fira Code"
       ];
     };
   };
