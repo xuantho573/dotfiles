@@ -4,8 +4,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     { "hrsh7th/cmp-nvim-lsp", commit = "a8912b8" },
-    { "antosha417/nvim-lsp-file-operations", config = true },
-    -- { "folke/neodev.nvim", opts = {} },
+    { "antosha417/nvim-lsp-file-operations", config = true, dependencies = "nvim-lua/plenary.nvim" },
   },
   config = function()
     vim.diagnostic.config({

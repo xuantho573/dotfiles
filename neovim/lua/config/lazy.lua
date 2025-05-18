@@ -14,11 +14,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
+
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins", version = "14.0.0" },
-    -- import/override with your plugins
     { import = "plugins" },
   },
   defaults = {

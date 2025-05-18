@@ -4,10 +4,9 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   lazy = false,
   opts = {
-    theme = "catppuccin",
     options = {
       icons_enabled = true,
-      theme = "auto",
+      theme = "catppuccin",
       component_separators = "|",
       section_separators = { left = "", right = "" },
       disabled_filetypes = {
@@ -43,6 +42,6 @@ return {
     tabline = {},
     winbar = {},
     inactive_winbar = {},
-    extensions = { "oil" },
+    extensions = {},
   },
 }
