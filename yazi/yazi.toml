@@ -2,8 +2,13 @@
 pdf = [
   { run = 'zathura "$@"', block = false, orphan = true, for = 'unix' }
 ]
+text = [
+  { run = '"$EDITOR" "$@"', block = true, orphan = false, for = 'unix' }
+]
 
 [open]
 rules = [
-  { name = '*.pdf', use = 'pdf' }
+  { name = '*.pdf', use = 'pdf' },
+  { name = '*.csv', use = 'text'},
+  { name = '*.txt', use = 'text'}
 ]

@@ -7,11 +7,11 @@
       NVM_DIR = "$HOME/.nvm";
       LC_ALL = "en_US.UTF-8";
       LANG = "en_US.UTF-8";
-      VISUAL = "nvim";
-      EDITOR = "nvim";
     };
     sessionVariables = {
       NIX_PROFILE = "$HOME/.nix-profile";
+      VISUAL = "nvim";
+      EDITOR = "nvim";
     };
     history.append = true;
     initExtra = ''${builtins.readFile ./zshInitExtra.sh} '';
