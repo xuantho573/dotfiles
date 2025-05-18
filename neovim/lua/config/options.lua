@@ -39,3 +39,4 @@ opt.foldexpr = "v:lua.require'utils.ui'.foldexpr()"
 opt.foldmethod = "expr"
 opt.foldtext = ""
 opt.pumheight = 15 -- Maximum number of entries in a popup
+opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
