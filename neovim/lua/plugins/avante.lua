@@ -4,6 +4,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
+    { "stevearc/dressing.nvim", version = "3.1.1" },
     "folke/snacks.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
