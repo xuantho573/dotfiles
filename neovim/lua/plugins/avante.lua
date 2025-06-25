@@ -2,6 +2,7 @@ return {
   "yetone/avante.nvim",
   version = "0.0.23",
   event = "VeryLazy",
+  lazy = true,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     { "stevearc/dressing.nvim", version = "3.1.1" },
@@ -15,7 +16,7 @@ return {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
       version = "0.6.0",
-      event = "VeryLazy",
+      lazy = true,
       opts = {
         -- recommended settings
         default = {
@@ -28,10 +29,10 @@ return {
   },
   opts = {
     provider = "gemini",
-    groq = {
+    gemini = {
       api_key_name = "GEMINI_API_KEY",
       endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-      model = "gemini-2.0-flash",
+      model = "gemini-2.5-flash-preview-05-20",
     },
     windows = { width = 30 },
   },
