@@ -12,6 +12,8 @@ return {
         { plugin = "oil.nvim", icon = "󰏇 ", hl = "CatppuccinFgFlamingo" },
       },
     },
-    spec = {},
+    spec = {
+      { "<leader>k", group = "rest", icon = { icon = "󰏚 ", hl = "CatppuccinFgSubtext0" } },
+    },
   },
 }
