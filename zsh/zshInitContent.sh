@@ -1,11 +1,13 @@
 eval "$(starship init zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-GROQ_API_KEY=$(op read "op://Private/Groq/API key")
+ANTHROPIC_API_KEY=$(op read "op://Private/Anthropic/API key")
 GEMINI_API_KEY=$(op read "op://Private/Google AI/API key")
+GROQ_API_KEY=$(op read "op://Private/Groq/API key")
 
-export GROQ_API_KEY
+export ANTHROPIC_API_KEY
 export GEMINI_API_KEY
+export GROQ_API_KEY
 
 # THEME
 LIGHT_THEME=catppuccin-latte
