@@ -14,7 +14,7 @@ palette = 'catppuccin-latte'
   truncation_symbol = '.../'
 
 [fill]
-  symbol = '-'
+  symbol = '─'
 
 [git_branch]
   style = 'bold pink'
