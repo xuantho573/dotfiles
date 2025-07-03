@@ -11,10 +11,11 @@ return {
   {
     "stevearc/oil.nvim",
     version = "2.15.0",
-    -- Optional dependencies
-    dependencies = "echasnovski/mini.icons",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "echasnovski/mini.icons",
+    },
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    lazy = false,
     keys = {
       { "<leader>e", "<cmd>Oil --float<cr>", desc = "Oil" },
     },
