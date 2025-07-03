@@ -1,5 +1,5 @@
 [opener]
-pdf = [
+document = [
   { run = 'zathura "$@"', block = false, orphan = true, for = 'unix' }
 ]
 text = [
@@ -8,7 +8,8 @@ text = [
 
 [open]
 rules = [
-  { name = '*.pdf', use = 'pdf' },
+  { name = '*.pdf', use = 'document' },
+  { name = '*.epub', use = 'document' },
   { name = '*.csv', use = 'text'},
   { name = '*.txt', use = 'text'}
 ]
