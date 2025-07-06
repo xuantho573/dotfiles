@@ -20,6 +20,7 @@ vim
 
 local opt = vim.opt
 
+opt.number = true -- Show current line number
 opt.relativenumber = true
 opt.shiftwidth = 2
 opt.tabstop = 2
