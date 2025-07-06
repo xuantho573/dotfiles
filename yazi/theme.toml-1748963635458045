@@ -1,7 +1,5 @@
-[mgr]
+[manager]
 cwd = { fg = "#179299" }
-linemode = "size"
-show_symlink = false
 
 # Hovered
 hovered         = { fg = "#eff1f5", bg = "#04a5e5" }
@@ -37,8 +35,8 @@ syntect_theme = "~/.config/yazi/Catppuccin-latte.tmTheme"
 normal_main = { fg = "#eff1f5", bg = "#04a5e5", bold = true }
 
 [status]
-sep_left  = { open = "", close = "" }
-sep_right  = { open = "", close = "" }
+separator_open  = ""
+separator_close = ""
 separator_style = { fg = "#bcc0cc", bg = "#bcc0cc" }
 
 # Mode
@@ -64,7 +62,7 @@ title    = {}
 value    = {}
 selected = { reversed = true }
 
-[pick]
+[select]
 border   = { fg = "#04a5e5" }
 active   = { fg = "#ea76cb" }
 inactive = {}
@@ -98,7 +96,7 @@ rules = [
 
 	# Archives
   { mime = "application/{,g}zip", fg = "#ea76cb" },
-	{ mime = "application/{tar,bzip*,7z-compressed,xz,rar}", fg = "#ea76cb" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#ea76cb" },
 
 	# Fallback
 	{ name = "*", fg = "#4c4f69" },

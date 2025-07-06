@@ -11,6 +11,7 @@
     (importSubModule ./btop)
     (importSubModule ./font)
     (importSubModule ./tmux)
+    (importSubModule ./yazi)
     (importSubModule ./zsh)
   ];
 
@@ -53,7 +54,6 @@
     fastfetch
     neovim
     starship
-    yazi
 
     nixd
     nixfmt-rfc-style
@@ -82,6 +82,5 @@
     nvim = mkConfigDirSymlink ./neovim;
     starship = mkConfigDirSymlink ./starship;
     wezterm = mkConfigDirSymlink ./wezterm;
-    yazi = mkConfigDirSymlink ./yazi;
   };
 }
