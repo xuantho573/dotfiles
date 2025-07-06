@@ -24,6 +24,7 @@ opt.number = true -- Show current line number
 opt.relativenumber = true
 opt.shiftwidth = 2
 opt.tabstop = 2
+opt.expandtab = true -- Use spaces instead of tabs
 -- opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
