@@ -13,3 +13,7 @@ rules = [
   { name = '*.csv', use = 'text'},
   { name = '*.txt', use = 'text'}
 ]
+
+[mgr]
+linemode = "size"
+show_symlink = true

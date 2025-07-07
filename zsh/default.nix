@@ -14,7 +14,7 @@
       EDITOR = "nvim";
     };
     history.append = true;
-    initExtra = ''${builtins.readFile ./zshInitExtra.sh} '';
+    initContent = ''${builtins.readFile ./zshInitContent.sh} '';
     shellAliases = {
       ff = "fastfetch";
       ls = "exa --icons";
