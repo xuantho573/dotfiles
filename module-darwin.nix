@@ -10,5 +10,6 @@ lib.mkIf isDarwin {
     unnaturalscrollwheels
     raycast
     pngpaste
+    betterdisplay
   ];
 }
