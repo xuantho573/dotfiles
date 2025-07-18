@@ -1,6 +1,6 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  version = "8.1.1",
+  version = "8.2.0",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
@@ -8,7 +8,6 @@ return {
   ft = { "markdown", "Avante" },
   opts = {
     sign = { enabled = false },
-    code = { language_pad = 2 },
     dash = { icon = "━" },
     heading = {
       icons = { "󰎥 ", "󰎨 ", "󰎫 ", "󰎲 ", "󰎯 ", "󰎴 " },
