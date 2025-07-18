@@ -16,5 +16,6 @@ return {
       right_pad = 4,
     },
     pipe_table = { preset = "round" },
+    latex = { enabled = false },
   },
 }
