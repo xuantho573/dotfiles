@@ -10,6 +10,7 @@ local modules = {
   lazygit = lazygit,
   notifier = notifier,
   picker = picker,
+  scroll = { opts = {} },
   statuscolumn = { opts = {} },
 }
 
