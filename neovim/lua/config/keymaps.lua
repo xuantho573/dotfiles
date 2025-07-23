@@ -7,4 +7,6 @@ set({ "i", "n", "t" }, "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Go to Bottom Wind
 set({ "i", "n", "t" }, "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Go to Top Window", remap = false })
 set({ "i", "n", "t" }, "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Go to Right Window", remap = false })
 
+set("t", "<esc>", "<C-\\><C-n>", { remap = false })
+
 set("n", "<esc>", ":noh<cr>", { remap = false, silent = true })
