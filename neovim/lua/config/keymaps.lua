@@ -1,7 +1,6 @@
 local set = vim.keymap.set
 
 set({ "i", "n", "x", "s" }, "<c-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
-set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Delete Buffer" })
 
 set({ "i", "n", "t" }, "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Go to Left Window", remap = false })
 set({ "i", "n", "t" }, "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Go to Bottom Window", remap = false })
