@@ -1,11 +1,8 @@
-local remove_backdrops
-
-local function wrap_remove_backdrops(func)
-  return function()
-    remove_backdrops()
-    func()
-  end
-end
+require("utils.add-backdrop-float-window")({
+  name = "Oil",
+  pattern = "oil://*",
+  zindex = 45,
+})
 
 return {
   {
@@ -15,6 +12,7 @@ return {
       "nvim-tree/nvim-web-devicons",
       "echasnovski/mini.icons",
     },
+    lazy = false,
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     keys = {
       { "<leader>e", "<cmd>Oil --float<cr>", desc = "Oil" },
@@ -32,27 +30,10 @@ return {
       win_options = {
         signcolumn = "yes:2",
       },
-      keymaps = {},
+      keymaps = {
+        ["q"] = { "actions.close", mode = "n" },
+      },
     },
-    config = function(_, opts)
-      local oil = require("oil")
-
-      remove_backdrops = require("utils.backdrop-float-window").add_backdrop_for_float_window({
-        name = "Oil",
-        pattern = "oil://*",
-        zindex = 45,
-        manual_close = true,
-      })
-
-      local wrapped_keymaps = {
-        ["<C-c>"] = { wrap_remove_backdrops(oil.close), mode = "n", desc = "Close oil and restore original buffer" },
-        ["q"] = { wrap_remove_backdrops(oil.close), mode = "n", desc = "Close oil and restore original buffer" },
-        ["<CR>"] = { wrap_remove_backdrops(oil.select), mode = "n", desc = "Open the entry under the cursor" },
-      }
-
-      opts.keymaps = vim.tbl_extend("force", opts.keymaps, wrapped_keymaps)
-      oil.setup(opts)
-    end,
   },
   {
     "refractalize/oil-git-status.nvim",
