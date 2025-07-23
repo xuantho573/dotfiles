@@ -32,6 +32,9 @@ return {
       },
       keymaps = {
         ["q"] = { "actions.close", mode = "n" },
+        ["<C-s>"] = false,
+        ["<C-h>"] = false,
+        ["<C-t>"] = false,
       },
     },
   },
