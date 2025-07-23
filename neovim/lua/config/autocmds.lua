@@ -15,12 +15,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     opts.desc = "Show line diagnostics"
     set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
-    opts.desc = "Go to previous diagnostic"
-    set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
-
-    opts.desc = "Go to next diagnostic"
-    set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-
     opts.desc = "Show documentation for what is under cursor"
     set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
