@@ -13,6 +13,7 @@
     (importSubModule ./tmux)
     (importSubModule ./yazi)
     (importSubModule ./zsh)
+    (importSubModule ./spicetify)
   ];
 
   programs.zathura = {
@@ -37,7 +38,6 @@
     postgresql
     pgadmin4
     less
-    spicetify-cli
     fd
     eza
     jq
