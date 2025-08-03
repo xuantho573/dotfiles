@@ -60,6 +60,11 @@
           sha256 = "I17u8qmYttsodD58PqtTxtVZauyYcNw1orFLPngo9bY=";
         };
       }
+      {
+        name = "zsh-vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
     ];
   };
 }
