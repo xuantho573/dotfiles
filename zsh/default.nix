@@ -14,7 +14,7 @@
       EDITOR = "nvim";
     };
     history.append = true;
-    initContent = ''${builtins.readFile ./zshInitContent.sh} '';
+    initContent = ''${builtins.readFile ./zshInitContent.sh}'';
     shellAliases = {
       ff = "fastfetch";
       ls = "exa --icons";
@@ -23,47 +23,36 @@
       lazygit = "LG_CONFIG_FILE=$LG_CONFIG_FILE lazygit";
       hms = "home-manager switch --flake ${homeManagerDir} --impure";
     };
-    plugins = [
+    plugins = with pkgs; [
+      {
+        name = "zsh-vi-mode";
+        src = zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
       {
         name = "zsh-autosuggestions";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-autosuggestions";
-          rev = "v0.7.0";
-          sha256 = "KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
-        };
+        src = zsh-autosuggestions;
+        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
       }
       {
         name = "zsh-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-syntax-highlighting";
-          rev = "db085e4661f6aafd24e5acb5b2e17e4dd5dddf3e";
-          sha256 = "iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
-        };
+        src = zsh-syntax-highlighting;
+        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
       }
       {
         name = "zsh-history-substring-search";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-history-substring-search";
-          rev = "87ce96b1862928d84b1afe7c173316614b30e301";
-          sha256 = "1+w0AeVJtu1EK5iNVwk3loenFuIyVlQmlw8TWliHZGI=";
-        };
+        src = zsh-history-substring-search;
+        file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
       }
       {
         name = "zsh-sudo";
-        src = pkgs.fetchFromGitHub {
-          owner = "hcgraf";
-          repo = "zsh-sudo";
-          rev = "d8084def6bb1bde2482e7aa636743f40c69d9b32";
-          sha256 = "I17u8qmYttsodD58PqtTxtVZauyYcNw1orFLPngo9bY=";
+        src = fetchFromGitHub {
+          owner = "ohmyzsh";
+          repo = "ohmyzsh";
+          rev = "a6beb0f5958e935d33b0edb6d4470c3d7c4e8917";
+          sha256 = "5Smg7KBCl+I1Uf10aE6NvYibxXUwRMdrxr49rLtvSE0=";
         };
-      }
-      {
-        name = "zsh-vi-mode";
-        src = pkgs.zsh-vi-mode;
-        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        file = "plugins/sudo/sudo.plugin.zsh";
       }
     ];
   };
