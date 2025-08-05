@@ -17,9 +17,17 @@
           src = catppuccin;
           file = "themes/Catppuccin Latte.tmTheme";
         };
+        catppuccin-frappe = {
+          src = catppuccin;
+          file = "themes/Catppuccin Frappe.tmTheme";
+        };
         catppuccin-macchiato = {
           src = catppuccin;
           file = "themes/Catppuccin Macchiato.tmTheme";
+        };
+        catppuccin-mocha = {
+          src = catppuccin;
+          file = "themes/Catppuccin Mocha.tmTheme";
         };
       };
   };
