@@ -13,7 +13,9 @@ in
     enable = true;
     themes = {
       catppuccin_latte = builtins.readFile (catppuccin + "/themes/catppuccin_latte.theme");
+      catppuccin_frappe = builtins.readFile (catppuccin + "/themes/catppuccin_frappe.theme");
       catppuccin_macchiato = builtins.readFile (catppuccin + "/themes/catppuccin_macchiato.theme");
+      catppuccin_mocha = builtins.readFile (catppuccin + "/themes/catppuccin_mocha.theme");
     };
   };
 }
