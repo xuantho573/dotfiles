@@ -65,3 +65,5 @@ opt.foldmethod = "expr"
 opt.foldtext = ""
 opt.pumheight = 15 -- Maximum number of entries in a popup
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
+opt.wrap = true
+opt.linebreak = true
