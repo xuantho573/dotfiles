@@ -7,6 +7,7 @@ return {
       sh = { "shfmt" },
       zsh = { "shfmt" },
       lua = { "stylua" },
+      javascript = { "eslint_d" },
     },
     format_on_save = { timeout_ms = 500 },
   },
