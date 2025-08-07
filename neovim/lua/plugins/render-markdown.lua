@@ -20,5 +20,6 @@ return {
     pipe_table = { preset = "round" },
     file_types = { "markdown", "Avante" },
     latex = { enabled = false },
+    completions = { blink = { enabled = true } },
   },
 }
