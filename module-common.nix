@@ -56,6 +56,9 @@
     starship
 
     slack
+
+    nodejs_22
+    yarn
     nixd
     nixfmt-rfc-style
 
