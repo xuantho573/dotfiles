@@ -1,1 +1,19 @@
-/nix/store/2hya1yk7vifigqa7sliyb7crcq39gqd0-home-manager-files/.config/yazi/yazi.toml
+[opener]
+document = [
+  { run = 'zathura "$@"', block = false, orphan = true, for = 'unix' }
+]
+text = [
+  { run = '"$EDITOR" "$@"', block = true, orphan = false, for = 'unix' }
+]
+
+[open]
+rules = [
+  { name = '*.pdf', use = 'document' },
+  { name = '*.epub', use = 'document' },
+  { name = '*.csv', use = 'text'},
+  { name = '*.txt', use = 'text'}
+]
+
+[mgr]
+linemode = "size"
+show_symlink = true
