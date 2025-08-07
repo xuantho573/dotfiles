@@ -55,6 +55,7 @@
     neovim
     starship
 
+    slack
     nixd
     nixfmt-rfc-style
 
