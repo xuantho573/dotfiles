@@ -16,8 +16,8 @@
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
         "repo": "home-manager",
+        "rev": "501cfec8277f931a9c9af9f23d3105c537faeafe",
         "type": "github"
       }
     },
@@ -32,8 +32,8 @@
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-25.05",
         "repo": "nixpkgs",
+        "rev": "7a732ed41ca0dd64b4b71b563ab9805a80a7d693",
         "type": "github"
       }
     },
