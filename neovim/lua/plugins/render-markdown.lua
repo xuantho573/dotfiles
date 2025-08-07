@@ -6,6 +6,8 @@ return {
     "echasnovski/mini.icons",
   },
   ft = { "markdown", "Avante" },
+  ---@module 'render-markdown'
+  ---@type render.md.UserConfig
   opts = {
     sign = { enabled = false },
     dash = { icon = "━" },
@@ -16,6 +18,7 @@ return {
       right_pad = 4,
     },
     pipe_table = { preset = "round" },
+    file_types = { "markdown", "Avante" },
     latex = { enabled = false },
   },
 }
