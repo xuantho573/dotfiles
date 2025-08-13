@@ -59,6 +59,7 @@
 
     nodejs_22
     yarn
+    direnv
     nixd
     nixfmt-rfc-style
 
