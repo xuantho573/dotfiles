@@ -28,6 +28,9 @@ return {
       selectedLineBgColor = { bg = "CatppuccinBgSurface0" },
       unstagedChangesColor = { fg = "CatppuccinFgRed" },
     },
-    win = { style = "lazygit" },
+    win = {
+      style = "lazygit",
+      backdrop = false,
+    },
   },
 }

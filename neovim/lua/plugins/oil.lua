@@ -1,9 +1,3 @@
-require("utils.add-backdrop-float-window")({
-  name = "Oil",
-  pattern = "oil://*",
-  zindex = 45,
-})
-
 return {
   {
     "stevearc/oil.nvim",

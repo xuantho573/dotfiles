@@ -58,5 +58,9 @@ return {
     -- { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
   },
   ---@class snacks.picker.Config
-  opts = {},
+  opts = {
+    layout = {
+      layout = { backdrop = false },
+    },
+  },
 }
