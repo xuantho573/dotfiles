@@ -12,6 +12,7 @@
       NIX_PROFILE = "$HOME/.nix-profile";
       VISUAL = "nvim";
       EDITOR = "nvim";
+      EZA_CONFIG_DIR = "$XDG_CONFIG_HOME/eza";
     };
     history.append = true;
     initContent = ''${builtins.readFile ./zshInitContent.sh}'';

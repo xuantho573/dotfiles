@@ -8,6 +8,7 @@
   imports = [
     ./bat
     ./btop
+    ./eza
     ./font
     ./spicetify
     ./tmux
@@ -38,7 +39,6 @@
     pgadmin4
     less
     fd
-    eza
     jq
     dasel
     musescore
