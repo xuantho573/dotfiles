@@ -26,6 +26,10 @@ in
   xdg.enable = true;
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
+  programs.nh = {
+    enable = true;
+    flake = flakeDir;
+  };
 
   home = {
     # Home Manager needs a bit of information about you and the paths it should manage.
