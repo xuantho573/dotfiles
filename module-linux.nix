@@ -1,12 +1,11 @@
 {
   pkgs,
   lib,
-  isDarwin,
-  mkConfigDirSymlink,
+  mkSymlink,
   ...
 }:
 
-lib.mkIf (!isDarwin) {
+lib.mkIf pkgs.stdenv.isLinux {
   home.packages = with pkgs; [
     alsa-utils
     networkmanagerapplet
@@ -20,11 +19,11 @@ lib.mkIf (!isDarwin) {
   ];
 
   xdg.configFile = {
-    fcitx5 = mkConfigDirSymlink ./fcitx5;
-    hypr = mkConfigDirSymlink ./hypr;
-    rofi = mkConfigDirSymlink ./rofi;
-    swaync = mkConfigDirSymlink ./swaync;
-    waybar = mkConfigDirSymlink ./waybar;
-    wlogout = mkConfigDirSymlink ./wlogout;
+    fcitx5.source = mkSymlink ./fcitx5;
+    hypr.source = mkSymlink ./hypr;
+    rofi.source = mkSymlink ./rofi;
+    swaync.source = mkSymlink ./swaync;
+    waybar.source = mkSymlink ./waybar;
+    wlogout.source = mkSymlink ./wlogout;
   };
 }

@@ -1,19 +1,18 @@
 {
   pkgs,
-  mkConfigDirSymlink,
-  importSubModule,
+  mkSymlink,
   ...
 }:
 
 {
   imports = [
-    (importSubModule ./bat)
-    (importSubModule ./btop)
-    (importSubModule ./font)
-    (importSubModule ./tmux)
-    (importSubModule ./yazi)
-    (importSubModule ./zsh)
-    (importSubModule ./spicetify)
+    ./bat
+    ./btop
+    ./font
+    ./spicetify
+    ./tmux
+    ./yazi
+    ./zsh
   ];
 
   programs.zathura = {
@@ -80,12 +79,12 @@
   ];
 
   xdg.configFile = {
-    lazydocker = mkConfigDirSymlink ./lazydocker;
-    lazygit = mkConfigDirSymlink ./lazygit;
-    kitty = mkConfigDirSymlink ./kitty;
-    fastfetch = mkConfigDirSymlink ./fastfetch;
-    nvim = mkConfigDirSymlink ./neovim;
-    starship = mkConfigDirSymlink ./starship;
-    wezterm = mkConfigDirSymlink ./wezterm;
+    lazydocker.source = mkSymlink ./lazydocker;
+    lazygit.source = mkSymlink ./lazygit;
+    kitty.source = mkSymlink ./kitty;
+    fastfetch.source = mkSymlink ./fastfetch;
+    nvim.source = mkSymlink ./neovim;
+    starship.source = mkSymlink ./starship;
+    wezterm.source = mkSymlink ./wezterm;
   };
 }

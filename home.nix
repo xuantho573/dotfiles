@@ -1,49 +1,26 @@
 {
   config,
-  pkgs,
   lib,
   username,
   homeDirectory,
-  homeManagerDir,
+  flakeDir,
   ...
 }:
 
 let
-  isDarwin = pkgs.stdenv.isDarwin;
-  removePrefix =
-    dir: subDir: builtins.substring (builtins.stringLength (toString dir)) (-1) (toString subDir);
-  mkSymlink = path: config.lib.file.mkOutOfStoreSymlink (homeManagerDir + (removePrefix ./. path));
-  mkConfigDirSymlink = path: {
-    source = mkSymlink path;
-    recursive = true;
-  };
-  importSubModule =
+  mkSymlink =
     path:
-    import path {
-      inherit
-        pkgs
-        lib
-        homeManagerDir
-        mkSymlink
-        ;
-    };
-  importModule =
-    path:
-    import path {
-      inherit
-        pkgs
-        lib
-        isDarwin
-        mkConfigDirSymlink
-        importSubModule
-        ;
-    };
+    config.lib.file.mkOutOfStoreSymlink (
+      lib.path.append (/. + flakeDir) (lib.path.removePrefix ./. path)
+    );
 in
 {
+  _module.args = { inherit mkSymlink; };
+
   imports = [
-    (importModule ./module-common.nix)
-    (importModule ./module-linux.nix)
-    (importModule ./module-darwin.nix)
+    ./module-common.nix
+    ./module-linux.nix
+    ./module-darwin.nix
   ];
 
   xdg.enable = true;

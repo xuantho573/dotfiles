@@ -1,4 +1,4 @@
-{ pkgs, homeManagerDir, ... }:
+{ pkgs, flakeDir, ... }:
 
 {
   programs.zsh = {
@@ -21,7 +21,7 @@
       la = "exa --icons --all";
       lla = "exa --icons --long --all";
       lazygit = "LG_CONFIG_FILE=$LG_CONFIG_FILE lazygit";
-      hms = "home-manager switch --flake ${homeManagerDir} --impure";
+      hms = "home-manager switch --flake ${flakeDir} --impure";
     };
     plugins = with pkgs; [
       {

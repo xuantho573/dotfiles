@@ -21,7 +21,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       username = builtins.getEnv "USER";
       homeDirectory = builtins.getEnv "HOME";
-      homeManagerDir = homeDirectory + "/projects/personal/dotfiles";
+      flakeDir = homeDirectory + "/projects/personal/dotfiles";
     in
     {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
@@ -31,7 +31,7 @@
             inputs
             username
             homeDirectory
-            homeManagerDir
+            flakeDir
             ;
         };
         modules = [ ./home.nix ];
