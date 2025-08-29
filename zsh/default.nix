@@ -20,6 +20,7 @@
       ff = "fastfetch";
       ls = "eza --icons";
       la = "eza --icons --all";
+      ll = "eza --icons --long";
       lla = "eza --icons --long --all";
       lazygit = "LG_CONFIG_FILE=$LG_CONFIG_FILE lazygit";
       hms = "nh home switch $NH_FLAKE -- --impure";
