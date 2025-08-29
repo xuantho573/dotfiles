@@ -18,9 +18,9 @@
     initContent = ''${builtins.readFile ./zshInitContent.sh}'';
     shellAliases = {
       ff = "fastfetch";
-      ls = "exa --icons";
-      la = "exa --icons --all";
-      lla = "exa --icons --long --all";
+      ls = "eza --icons";
+      la = "eza --icons --all";
+      lla = "eza --icons --long --all";
       lazygit = "LG_CONFIG_FILE=$LG_CONFIG_FILE lazygit";
       hms = "nh home switch $NH_FLAKE -- --impure";
     };
