@@ -10,10 +10,13 @@ return {
     icons = {
       rules = {
         { plugin = "oil.nvim", icon = "󰏇 ", hl = "CatppuccinFgFlamingo" },
+        { pattern = "hunk", icon = "󰊢 ", hl = "CatppuccinFgPeach" },
       },
     },
     spec = {
+      { "<leader>g", group = "git", icon = { icon = "󰊢 ", hl = "CatppuccinFgPeach" } },
       { "<leader>k", group = "rest", icon = { icon = "󰏚 ", hl = "CatppuccinFgSubtext0" } },
+      { "<leader>t", group = "toggle", icon = { icon = " ", hl = "CatppuccinFgYellow" } },
     },
   },
 }
