@@ -10,5 +10,6 @@ lib.mkIf pkgs.stdenv.isDarwin {
     raycast
     pngpaste
     betterdisplay
+    ice-bar
   ];
 }
