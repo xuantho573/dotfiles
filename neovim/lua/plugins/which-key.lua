@@ -14,6 +14,7 @@ return {
       },
     },
     spec = {
+      { "<leader>c", group = "code", icon = { icon = " ", hl = "CatppuccinFgPeach" } },
       { "<leader>g", group = "git", icon = { icon = "󰊢 ", hl = "CatppuccinFgPeach" } },
       { "<leader>k", group = "rest", icon = { icon = "󰏚 ", hl = "CatppuccinFgSubtext0" } },
       { "<leader>t", group = "toggle", icon = { icon = " ", hl = "CatppuccinFgYellow" } },

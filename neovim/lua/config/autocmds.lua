@@ -10,15 +10,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
     set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
     opts.desc = "Smart rename"
-    set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+    set("n", "<leader>cn", vim.lsp.buf.rename, opts) -- smart rename
 
     opts.desc = "Show line diagnostics"
-    set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+    set("n", "<leader>cd", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
     opts.desc = "Show documentation for what is under cursor"
     set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
     opts.desc = "Restart LSP"
-    set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+    set("n", "<leader>cs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
   end,
 })
