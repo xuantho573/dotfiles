@@ -13,19 +13,19 @@
         };
       in
       {
-        catppuccin-latte = {
+        "Catppuccin Latte" = {
           src = catppuccin;
           file = "themes/Catppuccin Latte.tmTheme";
         };
-        catppuccin-frappe = {
+        "Catppuccin Frappe" = {
           src = catppuccin;
           file = "themes/Catppuccin Frappe.tmTheme";
         };
-        catppuccin-macchiato = {
+        "Catppuccin Macchiato" = {
           src = catppuccin;
           file = "themes/Catppuccin Macchiato.tmTheme";
         };
-        catppuccin-mocha = {
+        "Catppuccin Mocha" = {
           src = catppuccin;
           file = "themes/Catppuccin Mocha.tmTheme";
         };
