@@ -19,7 +19,7 @@ return {
       pattern = ".env",
       group = lint_augroup,
       callback = function(args)
-        vim.diagnostic.disable(args.buf)
+        vim.diagnostic.enable(false, { bufnr = args.buf })
       end,
     })
 
