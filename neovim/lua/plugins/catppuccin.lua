@@ -24,7 +24,6 @@ return {
         },
         noice = true,
         notify = false,
-        nvimtree = true,
         rainbow_delimiters = true,
         snacks = true,
         treesitter = true,
