@@ -16,6 +16,7 @@ return {
       integrations = {
         blink_cmp = true,
         cmp = true,
+        diffview = true,
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
