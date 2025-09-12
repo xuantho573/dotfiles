@@ -41,6 +41,12 @@ end
 
 vim.lsp.enable(get_lsp_filenames())
 
+vim.cmd([[
+  function CustomCompletionGitTags(...)
+    return system('git tag')
+  endfunction
+]])
+
 local opt = vim.opt
 
 opt.number = true -- Show current line number
