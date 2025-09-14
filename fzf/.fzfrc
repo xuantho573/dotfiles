@@ -1,0 +1,18 @@
+--style full
+--padding 0,1
+--border-label ' Fzf ' --input-label ' Input '
+--preview '~/.local/bin/fzf-preview.sh {}'
+--bind 'result:transform-list-label:
+  if [[ -z $FZF_QUERY ]]; then
+    echo " $FZF_MATCH_COUNT items "
+  else
+    echo " $FZF_MATCH_COUNT matches for [$FZF_QUERY] "
+  fi
+'
+--bind 'focus:transform-preview-label:[[ -n {} ]] && printf " Previewing [%s] " {}'
+
+--color=bg+:#CCD0DA,bg:#EFF1F5,spinner:#DC8A78,hl:#D20F39
+--color=fg:#4C4F69,header:#D20F39,info:#8839EF,pointer:#DC8A78
+--color=marker:#7287FD,fg+:#4C4F69,prompt:#8839EF,hl+:#D20F39
+--color=selected-bg:#BCC0CC
+--color=border:#9CA0B0,label:#4C4F69

@@ -56,6 +56,11 @@
         };
         file = "plugins/sudo/sudo.plugin.zsh";
       }
+      {
+        name = "zsh-fzf-tab";
+        src = zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
+      }
     ];
   };
 }

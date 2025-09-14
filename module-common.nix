@@ -10,6 +10,7 @@
     ./btop
     ./eza
     ./font
+    ./fzf
     ./spicetify
     ./tmux
     ./yazi
@@ -33,7 +34,6 @@
     diff-so-fancy
     tldr
     ripgrep
-    fzf
     gcc14
     postgresql
     pgadmin4
