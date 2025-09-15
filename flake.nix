@@ -2,7 +2,11 @@
   description = "My personal home-manager config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/?rev=7a732ed41ca0dd64b4b71b563ab9805a80a7d693";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/?rev=501cfec8277f931a9c9af9f23d3105c537faeafe";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,27 +17,50 @@
     inputs@{
       self,
       nixpkgs,
+      darwin,
       home-manager,
       ...
     }:
     let
       system = builtins.currentSystem;
       pkgs = nixpkgs.legacyPackages.${system};
-      username = builtins.getEnv "USER";
-      homeDirectory = builtins.getEnv "HOME";
+      localHostName = "M4";
+      username = "xuantho573";
+      homeDirectory = "/Users/${username}";
       flakeDir = homeDirectory + "/projects/personal/dotfiles";
+      homeManagerExtraSpecialArgs = {
+        inherit
+          inputs
+          username
+          homeDirectory
+          flakeDir
+          ;
+      };
     in
     {
-      homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
+      darwinConfigurations."${localHostName}" = darwin.lib.darwinSystem {
+        modules = [
+          ./configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = false;
+            home-manager.useUserPackages = false;
+            home-manager.users."${username}" = ./home.nix;
+            home-manager.extraSpecialArgs = homeManagerExtraSpecialArgs;
+          }
+        ];
+        specialArgs = {
           inherit
-            inputs
             username
             homeDirectory
             flakeDir
+            localHostName
             ;
         };
+      };
+      homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = homeManagerExtraSpecialArgs;
         modules = [ ./home.nix ];
       };
     };
