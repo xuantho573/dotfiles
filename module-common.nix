@@ -8,6 +8,7 @@
   imports = [
     ./bat
     ./btop
+    ./delta
     ./eza
     ./font
     ./fzf
@@ -23,6 +24,24 @@
       useMupdf = false;
       "selection-clipboard" = "clipboard";
     };
+  };
+
+  programs.git = {
+    enable = true;
+    includes = [
+      { path = "~/delta.catppuccin.gitconfig"; }
+      {
+        contents = {
+          core = {
+            pager = "delta";
+          };
+          delta = {
+            features = "catppuccin-latte";
+            "side-by-side" = true;
+          };
+        };
+      }
+    ];
   };
 
   home.packages = with pkgs; [
