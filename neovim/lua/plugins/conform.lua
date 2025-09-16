@@ -10,15 +10,15 @@ return {
         lua = { "stylua" },
         javascript = { "eslint_d" },
       },
+      default_format_opts = {
+        lsp_format = "never",
+      },
       format_on_save = function(bufnr)
         if vim.g.conform_disable_auto_format or vim.b[bufnr].conform_disable_auto_format then
           return
         end
 
-        return {
-          timeout_ms = 1000,
-          lsp_format = "fallback",
-        }
+        return { timeout_ms = 1000 }
       end,
     },
   },
