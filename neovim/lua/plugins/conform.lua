@@ -11,7 +11,7 @@ return {
         javascript = { "eslint_d" },
       },
       format_on_save = function(bufnr)
-        if vim.g.conform_disable_auto_format and vim.b[bufnr].conform_disable_auto_format then
+        if vim.g.conform_disable_auto_format or vim.b[bufnr].conform_disable_auto_format then
           return
         end
 
