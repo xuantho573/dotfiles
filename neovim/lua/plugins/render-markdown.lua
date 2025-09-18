@@ -9,6 +9,9 @@ return {
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
   opts = {
+    bullet = {
+      icons = { "", "", "✦", "✧" },
+    },
     sign = { enabled = false },
     dash = { icon = "━" },
     heading = {
