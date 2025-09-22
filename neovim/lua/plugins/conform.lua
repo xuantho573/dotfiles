@@ -9,6 +9,7 @@ return {
         zsh = { "shfmt" },
         lua = { "stylua" },
         javascript = { "eslint_d" },
+        vue = { "eslint_d" },
       },
       default_format_opts = {
         lsp_format = "never",
