@@ -10,6 +10,7 @@ lib.mkIf pkgs.stdenv.isDarwin {
     raycast
     pngpaste
     betterdisplay
+    monitorcontrol
     ice-bar
     keycastr
   ];
