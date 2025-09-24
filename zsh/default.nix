@@ -4,7 +4,6 @@
   programs.zsh = {
     enable = true;
     localVariables = {
-      NVM_DIR = "$HOME/.nvm";
       LC_ALL = "en_US.UTF-8";
       LANG = "en_US.UTF-8";
     };
@@ -13,6 +12,7 @@
       VISUAL = "nvim";
       EDITOR = "nvim";
       EZA_CONFIG_DIR = "$XDG_CONFIG_HOME/eza";
+      VOLTA_HOME = "$HOME/.volta";
     };
     history.append = true;
     initContent = ''${builtins.readFile ./zshInitContent.sh}'';

@@ -75,8 +75,7 @@
 
     slack
 
-    nodejs_22
-    yarn
+    volta
     direnv
     nixd
     nixfmt-rfc-style

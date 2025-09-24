@@ -3,7 +3,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=always --color=alway
 eval "$(fzf --zsh)"
 eval "$(direnv hook zsh)"
 type starship_zle-keymap-select >/dev/null || eval "$(starship init zsh)"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 ANTHROPIC_API_KEY=$(op read "op://Private/Anthropic/API key")
 GEMINI_API_KEY=$(op read "op://Private/Google AI/API key")
