@@ -50,7 +50,6 @@
     enable = true;
     brews = [
       { name = "mermaid-cli"; }
-      { name = "tmux"; }
     ];
     casks = [
       { name = "betterdiscord-installer"; }
