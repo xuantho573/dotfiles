@@ -19,9 +19,6 @@ DARK_THEME=catppuccin-macchiato
 LIGHT_THEME_WITH_ACCENT=catppuccin-latte-sky
 DARK_THEME_WITH_ACCENT=catppuccin-macchiato-sky
 
-# Starship
-export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
-
 # Bat
 export BAT_THEME="Catppuccin Latte"
 

@@ -12,6 +12,7 @@
       VISUAL = "nvim";
       EDITOR = "nvim";
       EZA_CONFIG_DIR = "$XDG_CONFIG_HOME/eza";
+      STARSHIP_CONFIG = "$XDG_CONFIG_HOME/starship/starship.toml";
       VOLTA_HOME = "$HOME/.volta";
     };
     history.append = true;
