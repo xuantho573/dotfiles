@@ -25,8 +25,8 @@
       system = builtins.currentSystem;
       pkgs = nixpkgs.legacyPackages.${system};
       localHostName = "M4";
-      username = "xuantho573";
-      homeDirectory = "/Users/${username}";
+      username = builtins.getEnv "USER";
+      homeDirectory = builtins.getEnv "HOME";
       flakeDir = homeDirectory + "/projects/personal/dotfiles";
       homeManagerExtraSpecialArgs = {
         inherit
