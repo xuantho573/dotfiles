@@ -78,6 +78,7 @@
       autohide = true;
       largesize = 96;
       magnification = true;
+      mru-spaces = false;
       orientation = "bottom";
       tilesize = 64;
       wvous-bl-corner = 1;
