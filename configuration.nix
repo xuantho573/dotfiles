@@ -46,6 +46,18 @@
     config.homebrew.brewPrefix
   ];
 
+  launchd.daemons = {
+    kanata = {
+      command = "${pkgs.kanata}/bin/kanata -c ${homeDirectory}/.config/kanata/kanata.kbd";
+      serviceConfig = {
+        RunAtLoad = true;
+        KeepAlive = true;
+        StandardOutPath = /tmp/kanata.out.log;
+        StandardErrorPath = /tmp/kanata.err.log;
+      };
+    };
+  };
+
   homebrew = {
     enable = true;
     brews = [
@@ -55,6 +67,7 @@
       { name = "betterdiscord-installer"; }
       { name = "dockdoor"; }
       { name = "handbrake-app"; }
+      { name = "karabiner-elements"; }
       { name = "logitech-g-hub"; }
       { name = "megasync"; }
       { name = "messenger"; }

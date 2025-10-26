@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  mkSymlink,
   ...
 }:
 
@@ -14,4 +15,8 @@ lib.mkIf pkgs.stdenv.isDarwin {
     ice-bar
     keycastr
   ];
+
+  xdg.configFile = {
+    kanata.source = mkSymlink ./kanata;
+  };
 }
