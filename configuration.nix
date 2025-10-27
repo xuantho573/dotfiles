@@ -76,6 +76,11 @@
     onActivation.cleanup = "zap";
   };
 
+  system.activationScripts.postActivation.text = ''
+    # Following line should allow us to avoid a logout/login cycle when changing settings
+    sudo -u ${username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  '';
+
   system.defaults = {
     controlcenter = {
       AirDrop = false;
@@ -85,6 +90,85 @@
       FocusModes = true;
       NowPlaying = false;
       Sound = true;
+    };
+
+    CustomUserPreferences = {
+      "com.apple.symbolichotkeys" = {
+        AppleSymbolicHotKeys = {
+          # ctrl + left arrow
+          "79" = {
+            enabled = true;
+          };
+          # ctrl + right arrow
+          "81" = {
+            enabled = true;
+          };
+          # ctrl + 1
+          "118" = {
+            enabled = true;
+          };
+          # ctrl + 2
+          "119" = {
+            enabled = true;
+          };
+          # ctrl + 3
+          "120" = {
+            enabled = true;
+          };
+          # ctrl + 4
+          "121" = {
+            enabled = true;
+          };
+          # ctrl + 5
+          "122" = {
+            enabled = true;
+          };
+          # ctrl + 6
+          "123" = {
+            enabled = true;
+          };
+          # ctrl + 7
+          "124" = {
+            enabled = true;
+          };
+          # ctrl + 8
+          "125" = {
+            enabled = true;
+          };
+          # ctrl + 9
+          "126" = {
+            enabled = true;
+          };
+          # ctrl + 0
+          "127" = {
+            enabled = true;
+          };
+          # ctrl + alt + 1
+          "128" = {
+            enabled = true;
+          };
+          # ctrl + alt + 2
+          "129" = {
+            enabled = true;
+          };
+          # ctrl + alt + 3
+          "130" = {
+            enabled = true;
+          };
+          # ctrl + alt + 4
+          "131" = {
+            enabled = true;
+          };
+          # ctrl + alt + 5
+          "132" = {
+            enabled = true;
+          };
+          # ctrl + alt + 6
+          "133" = {
+            enabled = true;
+          };
+        };
+      };
     };
 
     dock = {
