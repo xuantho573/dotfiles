@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+yabai -m config layout bsp
+yabai -m config --space 2 layout float
+
+# New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+yabai -m config top_padding 8
+yabai -m config bottom_padding 8
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+yabai -m config window_gap 8
+
+# set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
+yabai -m config focus_follows_mouse autoraise
+
+# set mouse follows focus mode (default: off)
+yabai -m config mouse_follows_focus on
+
+# float system preferences
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="Zen" title="Sign in - Google Accounts" manage=off
+yabai -m rule --add app="Zen" title="Opening " manage=off
+
+borders active_color=0xff04a5e5 inactive_color=0x00000000 width=8 &

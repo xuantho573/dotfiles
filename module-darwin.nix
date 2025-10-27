@@ -14,9 +14,12 @@ lib.mkIf pkgs.stdenv.isDarwin {
     monitorcontrol
     ice-bar
     keycastr
+    yabai
+    jankyborders
   ];
 
   xdg.configFile = {
     kanata.source = mkSymlink ./kanata;
+    yabai.source = mkSymlink ./yabai;
   };
 }
