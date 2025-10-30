@@ -78,6 +78,7 @@
     casks = [
       { name = "betterdiscord-installer"; }
       { name = "dockdoor"; }
+      { name = "font-sf-pro"; }
       { name = "font-sketchybar-app-font"; }
       { name = "handbrake-app"; }
       { name = "karabiner-elements"; }
