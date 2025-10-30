@@ -1,0 +1,74 @@
+#!/bin/zsh
+
+source ./colors.sh
+source ./config.sh
+source ./icons.sh
+
+ITEM_DIR=./items
+PLUGIN_DIR=./plugins
+
+# Unload the macOS on screen indicator overlay for volume change
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
+
+# Setting up the general bar appearance of the bar
+bar=(
+  height=$HEIGHT
+  notch_display_height=$HEIGHT
+  color=0x88000000
+  position=top
+  sticky=on
+  padding_right=$PADDING_SM
+  padding_left=$PADDING_SM
+  corner_radius=$CORNER_RADIUS
+)
+
+sketchybar --bar "${bar[@]}"
+
+# Setting up default values
+defaults=(
+  updates=when_shown
+
+  padding_left=$PADDING_SM
+  padding_right=$PADDING_SM
+
+  icon.font="$FONT:Bold:$ICON_SIZE"
+  # icon.color=$CRUST
+  icon.color=$TEXT
+  icon.padding_left=$PADDING_LG
+  icon.padding_right=$PADDING_SM
+
+  label.font="$FONT:Semibold:$LABEL_SIZE"
+  label.color=$TEXT
+  label.padding_left=$PADDING_SM
+  label.padding_right=$PADDING_LG
+  label.background.corner_radius=$CORNER_RADIUS
+
+  background.color=$BACKGROUND_1
+  background.height=$BG_HEIGHT
+  background.corner_radius=$CORNER_RADIUS
+
+  popup.background.corner_radius=$CORNER_RADIUS
+  popup.background.color=$BACKGROUND_2
+  popup.blur_radius=20
+  popup.background.shadow.drawing=on
+)
+
+sketchybar --default "${defaults[@]}"
+
+# Left
+source "./apple/item.sh"
+source "./spaces/item.sh"
+source "./front_app/item.sh"
+
+# Right
+source "./calendar/item.sh"
+source "./battery/item.sh"
+
+source "./bluetooth/item.sh"
+source "./volume/item.sh"
+sketchybar --add bracket status bluetooth volume_icon
+
+# Forcing all item scripts to run (never do this outside of sketchybarrc)
+sketchybar --update
+
+sketchybar --trigger windows_on_spaces

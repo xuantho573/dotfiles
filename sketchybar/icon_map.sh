@@ -1,0 +1,139 @@
+case $@ in
+"Activity Monitor")
+  icon_result=":activity_monitor:"
+  ;;
+"App Store")
+  icon_result=":app_store:"
+  ;;
+"Calculator")
+  icon_result=":calculator:"
+  ;;
+"Calendar")
+  icon_result=":calendar:"
+  ;;
+"Code" | "Code - Insiders")
+  icon_result=":code:"
+  ;;
+"Cursor")
+  icon_result=":cursor:"
+  ;;
+"Discord")
+  icon_result=":discord:"
+  ;;
+"Docker")
+  icon_result=":docker:"
+  ;;
+"FaceTime")
+  icon_result=":face_time:"
+  ;;
+"Finder")
+  icon_result=":finder:"
+  ;;
+"Firefox")
+  icon_result=":firefox:"
+  ;;
+"Firefox Developer Edition" | "Firefox Nightly")
+  icon_result=":firefox_developer_edition:"
+  ;;
+"System Preferences" | "System Settings")
+  icon_result=":gear_old:"
+  ;;
+"Chromium" | "Google Chrome" | "Google Chrome Canary")
+  icon_result=":google_chrome:"
+  ;;
+"Keynote")
+  icon_result=":keynote:"
+  ;;
+"kitty")
+  icon_result=":kitty:"
+  ;;
+"League of Legends")
+  icon_result=":league_of_legends:"
+  ;;
+"Linear")
+  icon_result=":linear:"
+  ;;
+"Mail")
+  icon_result=":mail:"
+  ;;
+"Maps")
+  icon_result=":maps:"
+  ;;
+"Messages")
+  icon_result=":messages:"
+  ;;
+"Messenger")
+  icon_result=":messenger:"
+  ;;
+"Music")
+  icon_result=":music:"
+  ;;
+"Notes")
+  icon_result=":notes:"
+  ;;
+"Numbers")
+  icon_result=":numbers:"
+  ;;
+"Obsidian")
+  icon_result=":obsidian:"
+  ;;
+"1Password")
+  icon_result=":one_password:"
+  ;;
+"Pages")
+  icon_result=":pages:"
+  ;;
+"Passwords")
+  icon_result=":passwords:"
+  ;;
+"Perplexity")
+  icon_result=":perplexity:"
+  ;;
+"Photos")
+  icon_result=":photos:"
+  ;;
+"Preview")
+  icon_result=":preview:"
+  ;;
+"Raycast")
+  icon_result=":raycast:"
+  ;;
+"Reminders")
+  icon_result=":reminders:"
+  ;;
+"Safari" | "Safari Technology Preview")
+  icon_result=":safari:"
+  ;;
+"Shortcuts")
+  icon_result=":shortcuts:"
+  ;;
+"Slack")
+  icon_result=":slack:"
+  ;;
+"Spotify")
+  icon_result=":spotify:"
+  ;;
+"Spotlight")
+  icon_result=":spotlight:"
+  ;;
+"Steam")
+  icon_result=":steam:"
+  ;;
+"Terminal")
+  icon_result=":terminal:"
+  ;;
+"TextEdit")
+  icon_result=":textedit:"
+  ;;
+"Zen")
+  icon_result=":zen_browser:"
+  ;;
+
+"Gitify")
+  icon_result=""
+  ;;
+*)
+  icon_result=":default:"
+  ;;
+esac
+echo $icon_result

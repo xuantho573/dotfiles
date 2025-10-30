@@ -46,6 +46,18 @@
     config.homebrew.brewPrefix
   ];
 
+  launchd.user.agents = {
+    sketchybar = {
+      serviceConfig = {
+        RunAtLoad = true;
+        KeepAlive = true;
+        Program = "/Users/xuantho573/.nix-profile/bin/sketchybar";
+        StandardOutPath = /tmp/sketchybar.out.log;
+        StandardErrorPath = /tmp/sketchybar.err.log;
+      };
+    };
+  };
+
   launchd.daemons = {
     kanata = {
       command = "${pkgs.kanata}/bin/kanata -c ${homeDirectory}/.config/kanata/kanata.kbd";
@@ -66,6 +78,7 @@
     casks = [
       { name = "betterdiscord-installer"; }
       { name = "dockdoor"; }
+      { name = "font-sketchybar-app-font"; }
       { name = "handbrake-app"; }
       { name = "karabiner-elements"; }
       { name = "logitech-g-hub"; }
@@ -204,5 +217,10 @@
     };
 
     NSGlobalDomain."com.apple.swipescrolldirection" = true;
+    WindowManager.StandardHideDesktopIcons = true;
+
+    spaces = {
+      spans-displays = false;
+    };
   };
 }

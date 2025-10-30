@@ -15,11 +15,15 @@ lib.mkIf pkgs.stdenv.isDarwin {
     ice-bar
     keycastr
     yabai
+    sketchybar
     jankyborders
+    switchaudio-osx
+    blueutil
   ];
 
   xdg.configFile = {
     kanata.source = mkSymlink ./kanata;
+    sketchybar.source = mkSymlink ./sketchybar;
     yabai.source = mkSymlink ./yabai;
   };
 }
