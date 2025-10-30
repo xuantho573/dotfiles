@@ -73,19 +73,19 @@
   homebrew = {
     enable = true;
     brews = [
-      { name = "mermaid-cli"; }
+      "mermaid-cli"
     ];
     casks = [
-      { name = "betterdiscord-installer"; }
-      { name = "dockdoor"; }
-      { name = "font-sf-pro"; }
-      { name = "font-sketchybar-app-font"; }
-      { name = "handbrake-app"; }
-      { name = "karabiner-elements"; }
-      { name = "logitech-g-hub"; }
-      { name = "megasync"; }
-      { name = "messenger"; }
-      { name = "zalo"; }
+      "betterdiscord-installer"
+      "dockdoor"
+      "font-sf-pro"
+      "font-sketchybar-app-font"
+      "handbrake-app"
+      "karabiner-elements"
+      "logitech-g-hub"
+      "megasync"
+      "messenger"
+      "zalo"
     ];
     onActivation.cleanup = "zap";
   };
