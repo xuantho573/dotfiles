@@ -75,6 +75,7 @@
 
     slack
 
+    mongodb-compass
     volta
     direnv
     nixd
