@@ -65,6 +65,9 @@ case $@ in
 "Messenger")
   icon_result=":messenger:"
   ;;
+"MongoDB Compass")
+  icon_result=":mongodb:"
+  ;;
 "Music")
   icon_result=":music:"
   ;;
