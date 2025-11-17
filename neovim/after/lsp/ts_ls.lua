@@ -1,6 +1,5 @@
 return {
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-  cmd = { "typescript-language-server", "--stdio" },
   init_options = {
     preferences = { disableSuggestions = true },
     plugins = {

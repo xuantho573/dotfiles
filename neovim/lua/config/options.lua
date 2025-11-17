@@ -21,7 +21,7 @@ vim
 
 local function get_lsp_filenames()
   -- Find all .lua files in the identified 'lsp' directories
-  local lsp_dir = vim.fn.stdpath("config") .. "/lsp"
+  local lsp_dir = vim.fn.stdpath("config") .. "/after/lsp"
   local lsp_files = vim.fs.find(function(name)
     return name:match(".*%.lua$")
   end, {
