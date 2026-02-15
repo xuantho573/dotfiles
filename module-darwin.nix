@@ -19,6 +19,7 @@ lib.mkIf pkgs.stdenv.isDarwin {
     jankyborders
     switchaudio-osx
     blueutil
+    the-unarchiver
   ];
 
   xdg.configFile = {
