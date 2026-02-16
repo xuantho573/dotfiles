@@ -7,7 +7,13 @@ return {
     {
       "<leader>dt",
       function()
-        local tag = vim.fn.input("Git tag to compare", "", "custom,CustomCompletionGitTags")
+        vim.cmd([[
+          function DiffViewCustomCompletionGitTags(...)
+            return system('git tag')
+          endfunction
+        ]])
+
+        local tag = vim.fn.input("Git tag to compare", "", "custom,DiffViewCustomCompletionGitTags")
         if string.len(tag) > 0 then
           vim.cmd("DiffviewOpen " .. tag .. "..HEAD")
         end
