@@ -12,7 +12,6 @@ lib.mkIf pkgs.stdenv.isDarwin {
     pngpaste
     betterdisplay
     monitorcontrol
-    ice-bar
     keycastr
     yabai
     sketchybar
