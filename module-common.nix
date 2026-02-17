@@ -82,8 +82,8 @@
     nixfmt-rfc-style
 
     typescript
-    typescript-language-server
     vue-language-server
+    vtsls
     eslint_d
 
     tailwindcss-language-server
