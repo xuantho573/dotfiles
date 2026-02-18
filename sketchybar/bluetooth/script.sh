@@ -1,24 +1,25 @@
-#!/bin/zsh
+#!/bin/bash
+# shellcheck disable=SC2153,SC1091
 
-CWD=${0:a:h}
+CWD=$(dirname "${BASH_SOURCE[0]}")
+POPUP_ITEM_WIDTH=320
 
 toggle_status() {
   blueutil -p toggle
 }
 
 sync_status() {
-  source "$(dirname $CWD)/icons.sh"
+  source "./icons.sh"
   state=$(echo "$INFO" | jq -c '.POWER_STATE')
   if [ "$state" -eq 0 ]; then
-    sketchybar --set "$NAME" icon=$BT_OFF icon.highlight=off
+    sketchybar --set "$NAME" icon="$BT_OFF" icon.highlight=off
   elif [ "$state" -eq 1 ]; then
-    sketchybar --set "$NAME" icon=$BT_ON icon.highlight=on
+    sketchybar --set "$NAME" icon="$BT_ON" icon.highlight=on
   fi
 }
 
 toggle_devices() {
-  source "$(dirname $CWD)/colors.sh"
-  source "$(dirname $CWD)/config.sh"
+  source "./config.sh"
 
   ARGS=(--remove '/bluetooth.device\.*/' --set "$NAME" popup.align=right popup.drawing=toggle)
 
@@ -26,39 +27,31 @@ toggle_devices() {
     name=$(echo "$1" | jq -r '.name')
     address=$(echo "$1" | jq -r '.address')
     connected=$(echo "$1" | jq -r '.connected')
-    color=$TEXT
-    if [[ $connected = "true" ]]; then
-      color=$SKY
-    fi
+    [[ $connected = "true" ]] && highlight=on || highlight=off
 
     ARGS+=(
-      --add item bluetooth.device.$COUNTER popup."$NAME"
-      --set bluetooth.device.$COUNTER label="${name}"
-      label.color="${color}"
-      label.padding_left=$PADDING_LG
-      click_script="$CWD/device_click_script.sh $address"
+      --add item bluetooth.device."$address" popup."$NAME"
+      --set bluetooth.device."$address" label="${name}"
+      label.highlight="$highlight"
+      label.padding_left="$PADDING_LG"
+      script="$CWD/device_script.sh $address"
       icon.drawing=off
       background.drawing=off
+      width="$POPUP_ITEM_WIDTH"
+      --subscribe bluetooth.device."$address" mouse.clicked mouse.entered mouse.exited
     )
   }
 
-  COUNTER=0
   connected=$(blueutil --connected --format json | jq -c '.[]')
   paired=$(blueutil --paired --format json | jq -c '.[] | select(.connected == false)')
 
-  if [[ $connected != "" ]]; then
-    while IFS= read -r device; do
-      add_args $device
-      COUNTER=$((COUNTER + 1))
-    done <<<$connected
-  fi
+  [[ -n "$connected" ]] && while IFS= read -r device; do
+    add_args "$device"
+  done <<<"$connected"
 
-  if [[ $paired != "" ]]; then
-    while IFS= read -r device; do
-      add_args $device
-      COUNTER=$((COUNTER + 1))
-    done <<<$paired
-  fi
+  [[ -n "$paired" ]] && while IFS= read -r device; do
+    add_args "$device"
+  done <<<"$paired"
 
   sketchybar -m "${ARGS[@]}" >/dev/null
 }
@@ -77,7 +70,7 @@ case "$SENDER" in
 "mouse.exited")
   sketchybar --set "$NAME" background.drawing=off
   ;;
-"bluetooth_update")
+"bluetooth_update" | "bluetooth_device_connected" | "bluetooth_device_disconnected")
   sync_status
   ;;
 esac

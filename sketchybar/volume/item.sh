@@ -1,15 +1,13 @@
-#!/bin/zsh
+#!/bin/bash
 
-CWD=${0:a:h}
+CWD=$(dirname "${BASH_SOURCE[0]}")
 
 volume_slider=(
   script="$CWD/slider_script.sh"
   label.drawing=off
   icon.drawing=off
   background.drawing=off
-  slider.highlight_color=$SKY
   slider.background.height=4
-  slider.background.color=$BACKGROUND_2
   slider.knob="􀀁 "
   slider.knob.drawing=off
   padding_left=0
@@ -23,10 +21,10 @@ volume_icon=(
   padding_right=0
   padding_left=0
 
-  label.padding_left=$PADDING_MD
-  label.padding_right=$PADDING_MD
+  icon.padding_left="$PADDING_MD"
+  icon.padding_right="$PADDING_MD"
 
-  icon.drawing=off
+  label.drawing=off
 )
 
 sketchybar --add slider volume right \

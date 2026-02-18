@@ -1,6 +1,6 @@
-#!/bin/zsh
+#!/bin/bash
 
-CWD=${0:a:h}
+CWD=$(dirname "${BASH_SOURCE[0]}")
 
 yabai=(
   script="$CWD/yabai.sh"
@@ -17,15 +17,11 @@ yabai=(
 front_app=(
   script="$CWD/script.sh"
   padding_left=0
-  label.color=$BASE
 
   icon.drawing=on
   icon.font="$ICON_FONT:Regular:$ICON_SIZE"
-  icon.color=$BASE
 
   associated_display=active
-
-  background.drawing=off
 )
 
 sketchybar --add event window_focus \

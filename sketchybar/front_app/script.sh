@@ -1,9 +1,7 @@
-#!/bin/zsh
-
-CWD=${0:a:h}
+#!/bin/bash
 
 update_info() {
-  sketchybar --set $NAME icon=$($(dirname $CWD)/icon_map.sh "$INFO") label="$INFO"
+  sketchybar --set "$NAME" icon="$(./icon_map.sh "$INFO")" label="$INFO"
 }
 
 case "$SENDER" in

@@ -1,6 +1,7 @@
-#!/bin/zsh
+#!/bin/bash
+# shellcheck disable=SC1091
 
-CWD=${0:a:h}
+CWD=$(dirname "${BASH_SOURCE[0]}")
 
 detail_on() {
   sketchybar --animate tanh 20 --set volume slider.width=100
@@ -20,30 +21,27 @@ toggle_detail() {
 }
 
 toggle_devices() {
-  source "$(dirname $CWD)/colors.sh"
-  source "$(dirname $CWD)/config.sh"
+  source "./config.sh"
 
-  args=(--remove '/volume.device\.*/' --set "$NAME" popup.align=right popup.drawing=toggle)
-  COUNTER=0
-  CURRENT="$(SwitchAudioSource -t output -c)"
+  args=(--remove '/volume.device\.\d*/' --set "$NAME" popup.align=right popup.drawing=toggle)
+  current_device_uid="$(SwitchAudioSource -t output -c -f json | jq -r '.uid')"
   while IFS= read -r device; do
-    COLOR=$TEXT
-    if [ "${device}" = "$CURRENT" ]; then
-      COLOR=$SKY
-    fi
+    device_uid=$(echo "$device" | jq -r '.uid')
+    device_name=$(echo "$device" | jq -r '.name')
+    [[ "$device_uid" = "$current_device_uid" ]] && highlight=on || highlight=off
     args+=(
-      --add item volume.device.$COUNTER popup."$NAME"
-      --set volume.device.$COUNTER
-      label="${device}"
-      label.color="$COLOR"
-      label.padding_left=$PADDING_LG
+      --add item volume.device."$device_uid" popup."$NAME"
+      --set volume.device."$device_uid"
+      label="${device_name}"
+      label.highlight="$highlight"
+      label.padding_left="$PADDING_LG"
       background.drawing=off
       icon.drawing=off
       width=200
-      click_script="$CWD/sound_output_click_script.sh \"${device}\" $NAME"
+      script="$CWD/device_script.sh \"${device_uid}\" $NAME"
+      --subscribe volume.device."$device_uid" mouse.clicked mouse.entered mouse.exited
     )
-    COUNTER=$((COUNTER + 1))
-  done <<<"$(SwitchAudioSource -a -t output)"
+  done <<<"$(SwitchAudioSource -a -t output -f json | jq -c '.')"
   sketchybar -m "${args[@]}" >/dev/null
 }
 

@@ -1,0 +1,30 @@
+#!/bin/bash
+# shellcheck disable=SC2034
+
+# Color Palette
+ROSEWATER=0xfff4dbd6
+FLAMINGO=0xfff0c6c6
+PINK=0xfff5bde6
+MAUVE=0xffc6a0f6
+RED=0xffed8796
+MAROON=0xffee99a0
+PEACH=0xfff5a97f
+YELLOW=0xffeed49f
+GREEN=0xffa6da95
+TEAL=0xff8bd5ca
+SKY=0xff91d7e3
+SAPPHIRE=0xff7dc4e4
+BLUE=0xff8aadf4
+LAVENDER=0xffb7bdf8
+TEXT=0xffcad3f5
+SUB_TEXT_1=0xffb8c0e0
+SUB_TEXT_0=0xffa5adcb
+OVERLAY_2=0xff939ab7
+OVERLAY_1=0xff8087a2
+OVERLAY_0=0xff6e738d
+SURFACE_2=0xff5b6078
+SURFACE_1=0xff494d64
+SURFACE_0=0xff363a4f
+BASE=0xff24273a
+MANTLE=0xff1e2030
+CRUST=0xff181926

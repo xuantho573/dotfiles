@@ -1,54 +1,46 @@
-#!/bin/zsh
-
-CWD=${0:a:h}
-
-source "$(dirname $CWD)/icons.sh"
+#!/bin/bash
 
 PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep 'AC Power')
 
-if [ $PERCENTAGE = "" ]; then
+if [ "$PERCENTAGE" = "" ]; then
   exit 0
 fi
 
 case ${PERCENTAGE} in
 100)
-  ICON=󰁹
+  [[ "$CHARGING" != "" ]] && icon=󰂅 || icon=󰁹
   ;;
 9[0-9])
-  ICON=󰂂
+  [[ "$CHARGING" != "" ]] && icon=󰂋 || icon=󰂂
   ;;
 8[0-9])
-  ICON=󰂁
+  [[ "$CHARGING" != "" ]] && icon=󰂊 || icon=󰂁
   ;;
 7[0-9])
-  ICON=󰂀
+  [[ "$CHARGING" != "" ]] && icon=󰢞 || icon=󰂀
   ;;
 6[0-9])
-  ICON=󰁿
+  [[ "$CHARGING" != "" ]] && icon=󰂉 || icon=󰁿
   ;;
 5[0-9])
-  ICON=󰁾
+  [[ "$CHARGING" != "" ]] && icon=󰢝 || icon=󰁾
   ;;
 4[0-9])
-  ICON=󰁽
+  [[ "$CHARGING" != "" ]] && icon=󰂈 || icon=󰁽
   ;;
 3[0-9])
-  ICON=󰁼
+  [[ "$CHARGING" != "" ]] && icon=󰂇 || icon=󰁼
   ;;
 2[0-9])
-  ICON=󰁻
+  [[ "$CHARGING" != "" ]] && icon=󰂆 || icon=󰁻
   ;;
 1[0-9])
-  ICON=󰁺
+  [[ "$CHARGING" != "" ]] && icon=󰢜 || icon=󰁺
   ;;
 *)
-  ICON=󰂎
+  [[ "$CHARGING" != "" ]] && icon=󰢟 || icon=󰂎
   ;;
 esac
 
-if [[ $CHARGING != "" ]]; then
-  ICON=󰂄
-fi
-
-sketchybar --set $NAME label="$PERCENTAGE%" icon="$ICON"
+sketchybar --set "$NAME" label="$PERCENTAGE%" icon="$icon"

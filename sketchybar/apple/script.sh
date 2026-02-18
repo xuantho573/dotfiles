@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 close_popup() {
   sketchybar --set apple.logo popup.drawing=close
@@ -30,21 +30,17 @@ case "$SENDER" in
   ;;
 "mouse.entered")
   case "$NAME" in
-  "apple.logo")
-    #   toggle_popup
-    ;;
+  "apple.logo") ;;
   *)
-    sketchybar --set $NAME background.drawing=on
+    sketchybar --set "$NAME" background.drawing=on
     ;;
   esac
   ;;
 "mouse.exited")
   case "$NAME" in
-  "apple.logo")
-    #   toggle_popup
-    ;;
+  "apple.logo") ;;
   *)
-    sketchybar --set $NAME background.drawing=off
+    sketchybar --set "$NAME" background.drawing=off
     ;;
   esac
   ;;

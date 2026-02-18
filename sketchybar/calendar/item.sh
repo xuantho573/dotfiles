@@ -1,6 +1,6 @@
-#!/bin/zsh
+#!/bin/bash
 
-CWD=${0:a:h}
+CWD=$(dirname "${BASH_SOURCE[0]}")
 
 calendar=(
   icon=󰃭

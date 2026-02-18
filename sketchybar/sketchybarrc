@@ -1,59 +1,51 @@
-#!/bin/zsh
+#!/bin/bash
 
-source ./colors.sh
 source ./config.sh
 source ./icons.sh
-
-ITEM_DIR=./items
-PLUGIN_DIR=./plugins
 
 # Unload the macOS on screen indicator overlay for volume change
 launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/dev/null 2>&1 &
 
 # Setting up the general bar appearance of the bar
 bar=(
-  height=$HEIGHT
-  notch_display_height=$HEIGHT
-  color=0x88000000
+  height="$HEIGHT"
+  notch_display_height="$HEIGHT"
+  color=0x00000000
+  border_color=0x00000000
   position=top
   sticky=on
-  padding_right=$PADDING_SM
-  padding_left=$PADDING_SM
-  corner_radius=$CORNER_RADIUS
+  padding_right="$PADDING_SM"
+  padding_left="$PADDING_SM"
+  corner_radius="$CORNER_RADIUS"
 )
-
-sketchybar --bar "${bar[@]}"
 
 # Setting up default values
 defaults=(
   updates=when_shown
-
-  padding_left=$PADDING_SM
-  padding_right=$PADDING_SM
+  padding_left="$PADDING_SM"
+  padding_right="$PADDING_SM"
 
   icon.font="$FONT:Bold:$ICON_SIZE"
-  # icon.color=$CRUST
-  icon.color=$TEXT
-  icon.padding_left=$PADDING_LG
-  icon.padding_right=$PADDING_SM
+  icon.padding_left="$PADDING_LG"
+  icon.padding_right="$PADDING_SM"
 
   label.font="$FONT:Semibold:$LABEL_SIZE"
-  label.color=$TEXT
-  label.padding_left=$PADDING_SM
-  label.padding_right=$PADDING_LG
-  label.background.corner_radius=$CORNER_RADIUS
+  label.padding_left="$PADDING_SM"
+  label.padding_right="$PADDING_LG"
+  label.background.corner_radius="$CORNER_RADIUS"
 
-  background.color=$BACKGROUND_1
-  background.height=$BG_HEIGHT
-  background.corner_radius=$CORNER_RADIUS
+  background.height="$BG_HEIGHT"
+  background.corner_radius="$CORNER_RADIUS"
 
-  popup.background.corner_radius=$CORNER_RADIUS
-  popup.background.color=$BACKGROUND_2
+  popup.background.corner_radius="$CORNER_RADIUS"
   popup.blur_radius=20
   popup.background.shadow.drawing=on
 )
 
-sketchybar --default "${defaults[@]}"
+sketchybar \
+  --add event theme_change "AppleInterfaceThemeChangedNotification" \
+  --bar "${bar[@]}" \
+  --default "${defaults[@]}"
 
 # Left
 source "./apple/item.sh"
@@ -66,9 +58,13 @@ source "./battery/item.sh"
 
 source "./bluetooth/item.sh"
 source "./volume/item.sh"
-sketchybar --add bracket status bluetooth volume_icon
+sketchybar --add bracket status bluetooth volume_icon \
+  --add item dummy_system_theme right \
+  --set dummy_system_theme drawing=off updates=on script="./system_theme.sh" \
+  --subscribe dummy_system_theme theme_change
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)
 sketchybar --update
 
-sketchybar --trigger windows_on_spaces
+sketchybar --trigger windows_on_spaces \
+  --trigger theme_change

@@ -1,13 +1,13 @@
-#!/bin/zsh
+#!/bin/bash
 
-CWD=${0:a:h}
+CWD=$(dirname "${BASH_SOURCE[0]}")
 POPUP_ITEM_WIDTH=160
 
 apple_logo=(
   icon=󰀵
-  icon.color=$CRUST
+  icon.padding_left="$PADDING_MD"
+  icon.padding_right="$PADDING_MD"
   label.drawing=off
-  background.drawing=off
   script="$CWD/script.sh"
 )
 
@@ -15,17 +15,15 @@ apple_prefs=(
   icon=
   background.drawing=off
   label="Preferences"
-  width=$POPUP_ITEM_WIDTH
+  width="$POPUP_ITEM_WIDTH"
   script="$CWD/script.sh"
 )
 
 apple_activity=(
   icon=
   background.drawing=off
-  # background.color=$SKY
-  # width=stretch
   label="Activity"
-  width=$POPUP_ITEM_WIDTH
+  width="$POPUP_ITEM_WIDTH"
   script="$CWD/script.sh"
 )
 
@@ -33,7 +31,7 @@ apple_lock=(
   icon=󰌾
   background.drawing=off
   label="Lock Screen"
-  width=$POPUP_ITEM_WIDTH
+  width="$POPUP_ITEM_WIDTH"
   script="$CWD/script.sh"
 )
 
