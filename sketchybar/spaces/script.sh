@@ -2,7 +2,7 @@
 
 case "$SENDER" in
 "mouse.clicked")
-  NUMBER=$(("$SID" % 10))
+  NUMBER=$((SID % 10))
   case "$NUMBER" in
   0) KEYCODE=29 ;;
   1) KEYCODE=18 ;;
