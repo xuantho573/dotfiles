@@ -28,6 +28,23 @@ return {
       },
       keymaps = {
         ["q"] = { "actions.close", mode = "n" },
+        ["yn"] = {
+          "actions.yank_entry",
+          desc = "Yank the name of the entry under the cursor",
+          mode = "n",
+          opts = { modify = ":t" },
+        },
+        ["yP"] = {
+          "actions.yank_entry",
+          desc = "Yank the absolute filepath of the entry under the cursor",
+          mode = "n",
+        },
+        ["yp"] = {
+          "actions.yank_entry",
+          desc = "Yank the relative filepath of the entry under the cursor",
+          mode = "n",
+          opts = { modify = ":." },
+        },
         ["<C-s>"] = false,
         ["<C-h>"] = false,
         ["<C-t>"] = false,
