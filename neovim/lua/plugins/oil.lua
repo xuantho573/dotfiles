@@ -1,3 +1,5 @@
+local view_detail = false
+
 return {
   {
     "stevearc/oil.nvim",
@@ -29,6 +31,17 @@ return {
         ["<C-s>"] = false,
         ["<C-h>"] = false,
         ["<C-t>"] = false,
+        ["gd"] = {
+          desc = "Toggle file detail view",
+          callback = function()
+            view_detail = not view_detail
+            if view_detail then
+              require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+            else
+              require("oil").set_columns({ "icon" })
+            end
+          end,
+        },
       },
     },
   },
