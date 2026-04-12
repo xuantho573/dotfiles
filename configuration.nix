@@ -109,6 +109,10 @@
     CustomUserPreferences = {
       "com.apple.symbolichotkeys" = {
         AppleSymbolicHotKeys = {
+          # cmd + space
+          "64" = {
+            enabled = false;
+          };
           # ctrl + left arrow
           "79" = {
             enabled = true;
