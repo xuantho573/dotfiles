@@ -63,6 +63,9 @@ return {
       workdays_only = false,
       template = "daily",
     },
+    link = {
+      style = "markdown",
+    },
     picker = {
       name = "snacks.pick",
       -- Optional, configure key mappings for the picker. These are the defaults.
