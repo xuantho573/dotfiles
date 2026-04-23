@@ -8,16 +8,22 @@ return {
     {
       "<leader>dt",
       function()
-        vim.cmd([[
-          function DiffViewCustomCompletionGitTags(...)
-            return system('git tag')
-          endfunction
-        ]])
+        local cmd_output = vim.system({ "git", "tag" }, { text = true }):wait()["stdout"]
 
-        local tag = vim.fn.input("Git tag to compare", "", "custom,DiffViewCustomCompletionGitTags")
-        if string.len(tag) > 0 then
-          vim.cmd("DiffviewOpen " .. tag .. "..HEAD")
+        if cmd_output == "" then
+          vim.notify("No tag found", vim.log.levels.WARN)
+          return
         end
+
+        if cmd_output == nil then
+          vim.notify("An error happened when listing tags", vim.log.levels.ERROR)
+          return
+        end
+
+        local tags = vim.split(cmd_output, "\n")
+        vim.ui.select(tags, {}, function(tag)
+          vim.cmd("DiffviewOpen " .. tag .. "..HEAD")
+        end)
       end,
       desc = "Compare with Tag",
     },
