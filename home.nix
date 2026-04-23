@@ -31,6 +31,12 @@ in
     flake = flakeDir;
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
   home.activation = {
     myActivationAction = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if command -v skhd >/dev/null; then
