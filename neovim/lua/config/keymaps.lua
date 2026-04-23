@@ -9,4 +9,6 @@ set({ "i", "n", "t" }, "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Go to Right Windo
 
 set("t", "<esc>", "<C-\\><C-n>", { remap = false })
 
+set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+
 set("n", "<esc>", ":noh<cr>", { remap = false, silent = true })
