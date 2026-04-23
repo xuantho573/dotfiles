@@ -1,3 +1,15 @@
+local env = require("config.env")
+
+local TEMPLATE_DIR = env.get("OBSIDIAN_TEMPLATE_DIR")
+local DAILY_NOTE_DIR = env.get("OBSIDIAN_DAILY_NOTE_DIR")
+local VAULT_ROOT = env.get("OBSIDIAN_VAULT_ROOT")
+
+---@param title string
+---@return string
+local function slugify_title(title)
+  return require("obsidian.builtin").title_to_slug(title)
+end
+
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "3.13.1",
@@ -5,13 +17,8 @@ return {
   -- ft = "markdown",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   event = {
-    -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-    -- refer to `:h file-pattern` for more examples
-    "BufReadPre "
-      .. vim.fn.expand("~")
-      .. "/obsidian/My Vault/*.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "/obsidian/My Vault/*.md",
+    "BufReadPre " .. VAULT_ROOT .. "/*",
+    "BufNewFile " .. VAULT_ROOT .. "/*",
   },
   ---@module 'obsidian'
   ---@type obsidian.config
@@ -20,7 +27,7 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "~/obsidian/My Vault",
+        path = VAULT_ROOT,
       },
     },
     completion = {
@@ -30,8 +37,9 @@ return {
       create_new = true,
     },
     daily_notes = {
-      folder = "daily-notes",
+      folder = DAILY_NOTE_DIR,
       workdays_only = false,
+      template = "daily",
     },
     picker = {
       name = "snacks.pick",
