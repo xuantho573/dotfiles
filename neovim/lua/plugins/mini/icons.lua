@@ -1,4 +1,4 @@
 return {
   "echasnovski/mini.icons",
-  version = "0.15.0",
+  version = "0.17.0",
 }
