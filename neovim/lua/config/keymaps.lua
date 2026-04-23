@@ -11,4 +11,9 @@ set("t", "<esc>", "<C-\\><C-n>", { remap = false })
 
 set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
+set("n", "<leader>uI", function()
+  vim.treesitter.inspect_tree()
+  vim.api.nvim_input("I")
+end, { desc = "Inspect Tree" })
+
 set("n", "<esc>", ":noh<cr>", { remap = false, silent = true })
