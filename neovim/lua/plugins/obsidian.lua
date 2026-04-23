@@ -21,6 +21,19 @@ return {
   ---@type obsidian.config
   opts = {
     legacy_commands = false,
+    callbacks = {
+      post_setup = function()
+        vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian today<cr>", { desc = "Open Today's Note" })
+        vim.keymap.set("n", "<leader>oy", "<cmd>Obsidian yesterday<cr>", { desc = "Open Yesterday's Note" })
+        vim.keymap.set("n", "<leader>of", "<cmd>Obsidian follow_link<cr>", { desc = "Follow Link" })
+        vim.keymap.set(
+          "n",
+          "<leader>ont",
+          "<cmd>Obsidian new_from_template<cr>",
+          { desc = "Create New Note from Template" }
+        )
+      end,
+    },
     workspaces = {
       {
         name = "personal",
