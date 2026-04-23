@@ -3,11 +3,23 @@ local env = require("config.env")
 local TEMPLATE_DIR = env.get("OBSIDIAN_TEMPLATE_DIR")
 local DAILY_NOTE_DIR = env.get("OBSIDIAN_DAILY_NOTE_DIR")
 local VAULT_ROOT = env.get("OBSIDIAN_VAULT_ROOT")
+local OBSIDIAN_TEMPLATE_NOTE_DIR_MAP = env.get("OBSIDIAN_TEMPLATE_NOTE_DIR_MAP")
+
+local template_notes_subdir_map = {}
 
 ---@param title string
 ---@return string
 local function slugify_title(title)
   return require("obsidian.builtin").title_to_slug(title)
+end
+
+for _, value in ipairs(vim.fn.split(OBSIDIAN_TEMPLATE_NOTE_DIR_MAP, ",")) do
+  local template_subdir_pair = vim.fn.split(value, ":")
+
+  template_notes_subdir_map[template_subdir_pair[1]] = {
+    notes_subdir = template_subdir_pair[2],
+    note_id_func = slugify_title,
+  }
 end
 
 return {
@@ -70,6 +82,12 @@ return {
     },
     ui = {
       enable = false,
+    },
+    templates = {
+      folder = TEMPLATE_DIR,
+      date_format = "%Y-%m-%d %a",
+      time_format = "%H:%M",
+      customizations = template_notes_subdir_map,
     },
   },
 }
