@@ -12,10 +12,7 @@ end
 
 return {
   "obsidian-nvim/obsidian.nvim",
-  version = "3.13.1",
-  lazy = true,
-  -- ft = "markdown",
-  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+  version = "3.16.1",
   event = {
     "BufReadPre " .. VAULT_ROOT .. "/*",
     "BufNewFile " .. VAULT_ROOT .. "/*",
