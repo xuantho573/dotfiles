@@ -211,7 +211,6 @@
       wvous-tl-corner = 1;
       wvous-tr-corner = 1;
       persistent-apps = [
-        { app = "/System/Applications/Launchpad.app"; }
         { app = "/System/Applications/Mail.app"; }
         { app = "/System/Applications/Calendar.app"; }
         { app = "/System/Applications/System Settings.app"; }
