@@ -53,7 +53,7 @@ return {
           callback = function()
             view_detail = not view_detail
             if view_detail then
-              require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+              require("oil").set_columns({ "icon", "permissions", "size", "birthtime", "mtime" })
             else
               require("oil").set_columns({ "icon" })
             end
