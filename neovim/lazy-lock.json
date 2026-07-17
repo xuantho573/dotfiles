@@ -32,7 +32,7 @@
   "oil-git-status.nvim": { "branch": "main", "commit": "4b5cf53842c17a09420919e655a6a559da3112d7" },
   "oil.nvim": { "branch": "master", "commit": "975a77cce3c8cb742bc1b3629f4328f5ca977dad" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
-  "rainbow-delimiters.nvim": { "branch": "master", "commit": "1ab18259472d9fe5756750fec722c31bab1712da" },
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "b81d594e82b6ca1530797bdcfd16a1219250a2d8" },
   "render-markdown.nvim": { "branch": "main", "commit": "bfbb46af43c95115a06419ef290e16e2fa2a1941" },
   "snacks.nvim": { "branch": "main", "commit": "5eac729fa290248acfe10916d92a5ed5e5c0f9ed" },
   "todo-comments.nvim": { "branch": "main", "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668" },
