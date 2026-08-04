@@ -1,6 +1,6 @@
 return {
   "catgoose/nvim-colorizer.lua",
-  commit = "81e676d",
+  commit = "664c0b7", -- May 30, 2026
   event = "BufReadPre",
   opts = {
     filetypes = {
