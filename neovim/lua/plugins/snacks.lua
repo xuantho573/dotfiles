@@ -14,7 +14,7 @@ end
 
 return {
   "folke/snacks.nvim",
-  version = "2.22.0",
+  version = "2.28.0",
   priority = 1000,
   lazy = false,
   keys = vim.iter(vim.iter(submodules):map(get_keys):totable()):flatten():totable(),

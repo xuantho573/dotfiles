@@ -1,3 +1,7 @@
 return {
-  opts = {},
+  opts = {
+    git = {
+      patterns = { "GitSign", "MiniDiffSign", "OilGitStatusWorkingTree" },
+    },
+  },
 }
