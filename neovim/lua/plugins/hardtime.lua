@@ -6,6 +6,9 @@ return {
     dependencies = "MunifTanjim/nui.nvim",
     opts = {
       disable_mouse = false,
+      disabled_filetypes = {
+        snacks_picker_input = true,
+      },
     },
   },
   {
