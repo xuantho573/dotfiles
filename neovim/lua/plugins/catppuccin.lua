@@ -1,6 +1,6 @@
 return {
   "catppuccin/nvim",
-  version = "1.10.0",
+  version = "2.0.0",
   lazy = false,
   priority = 1000,
   name = "catppuccin",
@@ -18,6 +18,7 @@ return {
         cmp = true,
         diffview = true,
         gitsigns = true,
+        oil = true,
         mini = {
           enabled = true,
           indentscope_color = "",
@@ -51,6 +52,6 @@ return {
       end,
     })
 
-    vim.cmd.colorscheme("catppuccin")
+    vim.cmd.colorscheme("catppuccin-nvim")
   end,
 }
