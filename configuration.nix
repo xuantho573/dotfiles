@@ -56,18 +56,6 @@
     config.homebrew.brewPrefix
   ];
 
-  launchd.daemons = {
-    kanata = {
-      command = "${pkgs.kanata}/bin/kanata -c ${homeDirectory}/.config/kanata/kanata.kbd";
-      serviceConfig = {
-        RunAtLoad = true;
-        KeepAlive = true;
-        StandardOutPath = /tmp/kanata.out.log;
-        StandardErrorPath = /tmp/kanata.err.log;
-      };
-    };
-  };
-
   homebrew = {
     enable = true;
     brews = [
