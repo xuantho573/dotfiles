@@ -14,9 +14,11 @@
       EZA_CONFIG_DIR = "$XDG_CONFIG_HOME/eza";
       STARSHIP_CONFIG = "$XDG_CONFIG_HOME/starship/starship.toml";
       VOLTA_HOME = "$HOME/.volta";
+      BAT_THEME_LIGHT = "Catppuccin Latte";
+      BAT_THEME_DARK = "Catppuccin Macchiato";
     };
     history.append = true;
-    initContent = ''${builtins.readFile ./zshInitContent.sh}'';
+    initContent = "${builtins.readFile ./zshInitContent.sh}";
     shellAliases = {
       ff = "fastfetch";
       ls = "eza --icons";
