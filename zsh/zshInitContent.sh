@@ -12,9 +12,6 @@ DARK_THEME=catppuccin-macchiato
 LIGHT_THEME_WITH_ACCENT=catppuccin-latte-sky
 DARK_THEME_WITH_ACCENT=catppuccin-macchiato-sky
 
-# Bat
-export BAT_THEME="Catppuccin Latte"
-
 # Lazygit
 LG_DIR=$XDG_CONFIG_HOME/lazygit
 export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$LIGHT_THEME_WITH_ACCENT.yml
@@ -24,7 +21,6 @@ function change_background() {
   local theme_with_accent
 
   if [[ "$1" == "light" ]]; then
-    export BAT_THEME="Catppuccin Latte"
     theme=$LIGHT_THEME
     theme_with_accent=$LIGHT_THEME_WITH_ACCENT
 
@@ -34,7 +30,6 @@ function change_background() {
       gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     fi
   elif [[ "$1" == "dark" ]]; then
-    export BAT_THEME="Catppuccin Macchiato"
     theme=$DARK_THEME
     theme_with_accent=$DARK_THEME_WITH_ACCENT
 
