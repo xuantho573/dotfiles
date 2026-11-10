@@ -44,6 +44,7 @@ function change_background() {
   fi
 
   dasel put -f "$STARSHIP_CONFIG" -v $theme palette
+  git config --global delta.features $theme
   export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$theme_with_accent.yml
 }
 
