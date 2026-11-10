@@ -93,7 +93,6 @@
       "handbrake-app"
       "karabiner-elements"
       "megasync"
-      "messenger"
       "zalo"
     ];
     onActivation.cleanup = "zap";
