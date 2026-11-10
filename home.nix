@@ -37,15 +37,6 @@ in
     options = "--delete-older-than 7d";
   };
 
-  home.activation = {
-    myActivationAction = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      if command -v skhd >/dev/null; then
-        yabai --install-service
-        yabai --start-service
-      fi
-    '';
-  };
-
   home = {
     # Home Manager needs a bit of information about you and the paths it should manage.
     inherit username homeDirectory;
