@@ -13,7 +13,6 @@ lib.mkIf pkgs.stdenv.isDarwin {
     betterdisplay
     monitorcontrol
     keycastr
-    sketchybar
     jankyborders
     switchaudio-osx
     blueutil
@@ -22,6 +21,5 @@ lib.mkIf pkgs.stdenv.isDarwin {
 
   xdg.configFile = {
     kanata.source = mkSymlink ./kanata;
-    sketchybar.source = mkSymlink ./sketchybar;
   };
 }

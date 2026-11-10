@@ -56,18 +56,6 @@
     config.homebrew.brewPrefix
   ];
 
-  launchd.user.agents = {
-    sketchybar = {
-      serviceConfig = {
-        RunAtLoad = true;
-        KeepAlive = true;
-        Program = "/Users/xuantho573/.nix-profile/bin/sketchybar";
-        StandardOutPath = /tmp/sketchybar.out.log;
-        StandardErrorPath = /tmp/sketchybar.err.log;
-      };
-    };
-  };
-
   launchd.daemons = {
     kanata = {
       command = "${pkgs.kanata}/bin/kanata -c ${homeDirectory}/.config/kanata/kanata.kbd";
@@ -89,7 +77,6 @@
       "betterdiscord-installer"
       "dockdoor"
       "font-sf-pro"
-      "font-sketchybar-app-font"
       "handbrake-app"
       "megasync"
       "zalo"
