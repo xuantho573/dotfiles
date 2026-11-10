@@ -45,7 +45,6 @@
   };
 
   home.packages = with pkgs; [
-    discord
     obsidian
     spotify
     _1password-cli

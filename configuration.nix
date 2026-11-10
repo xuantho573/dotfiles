@@ -72,7 +72,6 @@
       "mermaid-cli"
     ];
     casks = [
-      "betterdiscord-installer"
       "dockdoor"
       "font-sf-pro"
       "handbrake-app"
