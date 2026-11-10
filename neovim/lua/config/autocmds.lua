@@ -22,3 +22,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
     set("n", "<leader>cs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
   end,
 })
+
+local installed_languages = nil
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    if installed_languages == nil then
+      installed_languages = require("nvim-treesitter").get_installed()
+    end
+
+    local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+    for _, installed in ipairs(installed_languages) do
+      if installed == lang then
+        vim.treesitter.start()
+        return
+      end
+    end
+  end,
+})
