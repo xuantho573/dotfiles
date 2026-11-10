@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  mkSymlink,
   ...
 }:
 
@@ -18,8 +17,4 @@ lib.mkIf pkgs.stdenv.isDarwin {
     blueutil
     the-unarchiver
   ];
-
-  xdg.configFile = {
-    kanata.source = mkSymlink ./kanata;
-  };
 }
