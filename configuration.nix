@@ -80,6 +80,8 @@
     onActivation.cleanup = "zap";
   };
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   system.activationScripts.postActivation.text = ''
     # Following line should allow us to avoid a logout/login cycle when changing settings
     sudo -u ${username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
