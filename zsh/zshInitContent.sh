@@ -4,13 +4,6 @@ eval "$(fzf --zsh)"
 eval "$(direnv hook zsh)"
 type starship_zle-keymap-select >/dev/null || eval "$(starship init zsh)"
 
-ANTHROPIC_API_KEY=$(op read "op://Private/Anthropic/API key")
-GEMINI_API_KEY=$(op read "op://Private/Google AI/API key")
-GROQ_API_KEY=$(op read "op://Private/Groq/API key")
-
-export ANTHROPIC_API_KEY
-export GEMINI_API_KEY
-export GROQ_API_KEY
 export FZF_DEFAULT_OPTS_FILE=~/.fzfrc
 
 # THEME
