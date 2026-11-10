@@ -72,7 +72,6 @@
       "mermaid-cli"
     ];
     casks = [
-      "dockdoor"
       "font-sf-pro"
       "handbrake-app"
       "megasync"
