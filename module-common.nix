@@ -36,7 +36,6 @@
             pager = "delta";
           };
           delta = {
-            features = "catppuccin-latte";
             "side-by-side" = true;
           };
         };
