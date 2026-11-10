@@ -92,7 +92,6 @@
       "font-sketchybar-app-font"
       "handbrake-app"
       "karabiner-elements"
-      "logitech-g-hub"
       "megasync"
       "messenger"
       "zalo"
