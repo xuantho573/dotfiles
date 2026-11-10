@@ -91,7 +91,6 @@
       "font-sf-pro"
       "font-sketchybar-app-font"
       "handbrake-app"
-      "karabiner-elements"
       "megasync"
       "zalo"
     ];
