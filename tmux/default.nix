@@ -21,7 +21,7 @@ in
 {
   home.packages = with pkgs; [
     tmux
-    tmuxifier
+    tmuxinator
   ];
 
   xdg.configFile = {
