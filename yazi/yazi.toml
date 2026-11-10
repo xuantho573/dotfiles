@@ -1,6 +1,6 @@
 [opener]
 document = [
-  { run = 'zathura "$@"', block = false, orphan = true, for = 'unix' }
+  # { run = 'zathura "$@"', block = false, orphan = true, for = 'unix' }
 ]
 text = [
   { run = '"$EDITOR" "$@"', block = true, orphan = false, for = 'unix' }
@@ -8,10 +8,10 @@ text = [
 
 [open]
 rules = [
-  { name = '*.pdf', use = 'document' },
-  { name = '*.epub', use = 'document' },
-  { name = '*.csv', use = 'text'},
-  { name = '*.txt', use = 'text'}
+  # { name = '*.pdf', use = 'document' },
+  # { name = '*.epub', use = 'document' },
+  { url = '*.csv', use = 'text'},
+  { url = '*.txt', use = 'text'}
 ]
 
 [mgr]

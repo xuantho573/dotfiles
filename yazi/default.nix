@@ -3,7 +3,6 @@
 {
   programs.yazi = {
     enable = true;
-    initLua = ./init.lua;
     plugins = {
       full-border = pkgs.yaziPlugins.full-border;
     };
@@ -16,10 +15,10 @@
     "yazi/flavors".source = pkgs.fetchFromGitHub {
       owner = "yazi-rs";
       repo = "flavors";
-      rev = "d04a298a8d4ada755816cb1a8cfb74dd46ef7124";
-      sha256 = "m3yk6OcJ9vbCwtxkMRVUDhMMTOwaBFlqWDxGqX2Kyvc=";
+      rev = "0f9204bc948c8313963f5c9d571a82edc201f8aa"; # May 31, 2026
+      sha256 = "qWNArjWuxWL+rOjLzyIniW5hJgWiAWTCgXmMXJpaWZE=";
     };
-    "yazi/package.toml".source = mkSymlink ./package.toml;
+    "yazi/init.lua".source = mkSymlink ./init.lua;
     "yazi/yazi.toml".source = mkSymlink ./yazi.toml;
   };
 }
