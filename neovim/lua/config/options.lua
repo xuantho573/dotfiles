@@ -5,19 +5,21 @@ vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 vim.diagnostic.config({
   float = { border = "rounded" },
   virtual_text = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+      [vim.diagnostic.severity.HINT] = "󰠠 ",
+    },
+    texthl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+    },
+  },
 })
-
-vim
-  .iter({
-    Error = " ",
-    Warn = " ",
-    Hint = "󰠠 ",
-    Info = " ",
-  })
-  :each(function(type, icon)
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-  end)
 
 local function get_lsp_filenames()
   -- Find all .lua files in the identified 'lsp' directories
