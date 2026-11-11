@@ -38,6 +38,9 @@
           delta = {
             "side-by-side" = true;
           };
+          init = {
+            defaultBranch = "main";
+          };
         };
       }
     ];
