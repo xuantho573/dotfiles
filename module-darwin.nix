@@ -1,13 +1,16 @@
 {
   pkgs,
   lib,
+  pkgs-unstable,
   ...
 }:
 
 lib.mkIf pkgs.stdenv.isDarwin {
-  home.packages = with pkgs; [
+  home.packages = [
+    pkgs-unstable.raycast
+  ]
+  ++ (with pkgs; [
     unnaturalscrollwheels
-    raycast
     pngpaste
     betterdisplay
     monitorcontrol
@@ -16,5 +19,5 @@ lib.mkIf pkgs.stdenv.isDarwin {
     switchaudio-osx
     blueutil
     the-unarchiver
-  ];
+  ]);
 }

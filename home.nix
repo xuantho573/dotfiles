@@ -4,6 +4,7 @@
   username,
   homeDirectory,
   flakeDir,
+  pkgs-unstable,
   ...
 }:
 
@@ -15,7 +16,7 @@ let
     );
 in
 {
-  _module.args = { inherit mkSymlink; };
+  _module.args = { inherit mkSymlink pkgs-unstable; };
 
   imports = [
     ./module-common.nix
