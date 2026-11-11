@@ -1,4 +1,4 @@
---style full
+--style default
 --padding 0,1
 --border-label ' Fzf ' --input-label ' Input '
 --preview '~/.local/bin/fzf-preview.sh {}'
