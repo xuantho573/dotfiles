@@ -1,7 +1,5 @@
 [opener]
-document = [
-  # { run = 'zathura "$@"', block = false, orphan = true, for = 'unix' }
-]
+document = [ ]
 text = [
   { run = '"$EDITOR" "$@"', block = true, orphan = false, for = 'unix' }
 ]
