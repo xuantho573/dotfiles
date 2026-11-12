@@ -74,6 +74,7 @@
     nixd
     nixfmt-rfc-style
 
+    clang-tools
     typescript
     vue-language-server
     vtsls

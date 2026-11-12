@@ -11,6 +11,7 @@ return {
         javascript = { "eslint_d" },
         typescript = { "eslint_d" },
         vue = { "eslint_d" },
+        cpp = { "clang-format" },
       },
       default_format_opts = {
         lsp_format = "never",
