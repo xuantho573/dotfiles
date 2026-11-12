@@ -65,6 +65,7 @@
     fastfetch
     neovim
     starship
+    vscode
 
 
     mongodb-compass
