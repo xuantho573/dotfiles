@@ -74,7 +74,6 @@
     neovim
     starship
 
-    slack
 
     mongodb-compass
     volta
