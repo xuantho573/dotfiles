@@ -7,7 +7,16 @@ return {
   config = function()
     require("catppuccin").setup({
       flavour = "auto", -- latte, frappe, macchiato, mocha
-      transparent_background = false,
+      transparent_background = true,
+      float = {
+        transparent = true,
+        solid = false,
+      },
+      dim_inactive = {
+        enabled = false,
+        shade = "light",
+        percentage = 0.8,
+      },
       background = { -- :h background
         light = "latte",
         dark = "macchiato",
@@ -30,6 +39,9 @@ return {
         treesitter = true,
         which_key = true,
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+      },
+      special_styles = {
+        floats = true,
       },
     })
 
