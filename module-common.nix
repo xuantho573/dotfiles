@@ -18,14 +18,6 @@
     ./zsh
   ];
 
-  programs.zathura = {
-    enable = true;
-    options = {
-      useMupdf = false;
-      "selection-clipboard" = "clipboard";
-    };
-  };
-
   programs.git = {
     enable = true;
     includes = [
