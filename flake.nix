@@ -47,6 +47,22 @@
       };
     in
     {
+      devShells.${system}.default = pkgs.mkShellNoCC {
+        packages = with pkgs; [
+          commitlint
+          just
+          nixfmt
+          nixd
+          stylua
+        ];
+        shellHook = ''
+          # Point git at the repo's tracked hooks (commit-msg runs commitlint)
+          if [ "$(git config --local core.hooksPath)" != ".githooks" ]; then
+            git config --local core.hooksPath .githooks
+          fi
+        '';
+      };
+
       darwinConfigurations."${localHostName}" = darwin.lib.darwinSystem {
         modules = [
           ./configuration.nix
