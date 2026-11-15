@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# Lint the commit message with commitlint (provided by `nix develop`).
+if ! command -v commitlint >/dev/null 2>&1; then
+  echo "commit-msg: commitlint not found; run inside 'nix develop' (or allow direnv)." >&2
+  exit 1
+fi
+
+exec commitlint --edit "$1"
