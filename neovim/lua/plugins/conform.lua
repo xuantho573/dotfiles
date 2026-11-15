@@ -12,6 +12,7 @@ return {
         typescript = { "eslint_d" },
         vue = { "eslint_d" },
         cpp = { "clang-format" },
+        rust = { "rustfmt" },
       },
       default_format_opts = {
         lsp_format = "never",
