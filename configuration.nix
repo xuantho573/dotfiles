@@ -178,6 +178,18 @@
           "133" = {
             enabled = true;
           };
+          "163" = {
+            # Mission Control > Show Notification Center
+            enabled = true;
+            value = {
+              parameters = [
+                110 # N
+                45 # N
+                1310720 # Ctrl + Cmd
+              ];
+              type = "standard";
+            };
+          };
         };
       };
     };
