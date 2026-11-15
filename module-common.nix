@@ -96,6 +96,8 @@
     pyright
 
     rustup
+
+    yaml-language-server
   ];
 
   xdg.configFile = {
