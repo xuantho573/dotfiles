@@ -55,7 +55,6 @@
     dasel
     musescore
     syncthing
-    cargo
 
     colima
     docker
@@ -89,6 +88,8 @@
 
     lua-language-server
     stylua
+
+    rustup
   ];
 
   xdg.configFile = {
