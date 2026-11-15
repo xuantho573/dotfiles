@@ -68,6 +68,8 @@
 
     tree-sitter
 
+    just
+
     mongodb-compass
     volta
     direnv
