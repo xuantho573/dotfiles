@@ -89,6 +89,8 @@
     lua-language-server
     stylua
 
+    pyright
+
     rustup
   ];
 
