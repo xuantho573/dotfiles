@@ -81,6 +81,7 @@
     vue-language-server
     vtsls
     eslint_d
+    svelte-language-server
 
     tailwindcss-language-server
     vscode-langservers-extracted
