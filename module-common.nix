@@ -98,6 +98,9 @@
     rustup
 
     yaml-language-server
+
+    firefox
+    google-chrome
   ];
 
   xdg.configFile = {
