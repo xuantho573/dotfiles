@@ -19,5 +19,6 @@ lib.mkIf pkgs.stdenv.isDarwin {
     switchaudio-osx
     blueutil
     the-unarchiver
+    terminal-notifier
   ]);
 }
