@@ -65,6 +65,7 @@
     neovim
     starship
     vscode
+    gh
 
     tree-sitter
 
