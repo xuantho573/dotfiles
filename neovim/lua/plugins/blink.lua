@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  version = "1.3.1",
+  version = "1.10.0",
   event = "InsertEnter",
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
