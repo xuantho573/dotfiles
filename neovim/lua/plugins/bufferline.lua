@@ -2,6 +2,8 @@ return {
   "akinsho/bufferline.nvim",
   version = "4.9.1",
   lazy = false,
+  -- skip in the tmux daily-note popup (no context about other files)
+  cond = vim.env.NVIM_NOTE_POPUP == nil,
   keys = {
     { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
     { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },

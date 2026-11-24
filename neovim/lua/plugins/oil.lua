@@ -9,6 +9,8 @@ return {
       "echasnovski/mini.icons",
     },
     lazy = false,
+    -- skip in the tmux daily-note popup (no context about other files)
+    cond = vim.env.NVIM_NOTE_POPUP == nil,
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     keys = {
       { "<leader>e", "<cmd>Oil --float<cr>", desc = "Oil" },
@@ -68,6 +70,8 @@ return {
     dependencies = {
       "stevearc/oil.nvim",
     },
+    -- skip in the tmux daily-note popup (no context about other files)
+    cond = vim.env.NVIM_NOTE_POPUP == nil,
     config = true,
   },
 }

@@ -26,6 +26,7 @@ in
 
   xdg.configFile = {
     "tmux/tmux.conf".source = mkSymlink ./tmux.conf;
+    "tmux/scripts".source = mkSymlink ./scripts;
     "tmux/dark-theme.tmux.conf".source = darkThemeSource;
     "tmux/light-theme.tmux.conf".source = lightThemeSource;
     "tmux/plugins/tpm".source = pkgs.fetchFromGitHub {
