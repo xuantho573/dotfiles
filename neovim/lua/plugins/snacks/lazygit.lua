@@ -31,6 +31,14 @@ return {
     win = {
       style = "lazygit",
       backdrop = false,
+      -- Pass C-h/j/k/l/\ through to lazygit instead of triggering vim-tmux-navigator
+      keys = {
+        nav_h = { "<c-h>", "<c-h>", mode = "t", expr = true },
+        nav_j = { "<c-j>", "<c-j>", mode = "t", expr = true },
+        nav_k = { "<c-k>", "<c-k>", mode = "t", expr = true },
+        nav_l = { "<c-l>", "<c-l>", mode = "t", expr = true },
+        nav_prev = { "<c-\\>", "<c-\\>", mode = "t", expr = true },
+      },
     },
   },
 }
