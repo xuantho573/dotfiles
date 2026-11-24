@@ -4,6 +4,7 @@
   username,
   homeDirectory,
   flakeDir,
+  flakeRoot,
   pkgs-unstable,
   ...
 }:
@@ -12,16 +13,16 @@ let
   mkSymlink =
     path:
     config.lib.file.mkOutOfStoreSymlink (
-      lib.path.append (/. + flakeDir) (lib.path.removePrefix ./. path)
+      lib.path.append (/. + flakeDir) (lib.path.removePrefix flakeRoot path)
     );
 in
 {
   _module.args = { inherit mkSymlink pkgs-unstable; };
 
   imports = [
-    ./module-common.nix
-    ./module-linux.nix
-    ./module-darwin.nix
+    ./common.nix
+    ./linux.nix
+    ./darwin.nix
   ];
 
   xdg.enable = true;
@@ -30,12 +31,6 @@ in
   programs.nh = {
     enable = true;
     flake = flakeDir;
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
   };
 
   home = {

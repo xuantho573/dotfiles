@@ -6,16 +6,16 @@
 
 {
   imports = [
-    ./bat
-    ./btop
-    ./delta
-    ./eza
-    ./font
-    ./fzf
-    ./spicetify
-    ./tmux
-    ./yazi
-    ./zsh
+    ../apps/bat
+    ../apps/btop
+    ../apps/delta
+    ../apps/eza
+    ../apps/font
+    ../apps/fzf
+    ../apps/spicetify
+    ../apps/tmux
+    ../apps/yazi
+    ../apps/zsh
   ];
 
   programs.git = {
@@ -108,12 +108,12 @@
   ];
 
   xdg.configFile = {
-    lazydocker.source = mkSymlink ./lazydocker;
-    lazygit.source = mkSymlink ./lazygit;
-    kitty.source = mkSymlink ./kitty;
-    fastfetch.source = mkSymlink ./fastfetch;
-    nvim.source = mkSymlink ./neovim;
-    starship.source = mkSymlink ./starship;
-    wezterm.source = mkSymlink ./wezterm;
+    lazydocker.source = mkSymlink ../apps/lazydocker;
+    lazygit.source = mkSymlink ../apps/lazygit;
+    kitty.source = mkSymlink ../apps/kitty;
+    fastfetch.source = mkSymlink ../apps/fastfetch;
+    nvim.source = mkSymlink ../apps/neovim;
+    starship.source = mkSymlink ../apps/starship;
+    wezterm.source = mkSymlink ../apps/wezterm;
   };
 }

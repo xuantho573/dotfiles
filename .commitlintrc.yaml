@@ -1,4 +1,11 @@
 # Mirrors @commitlint/config-conventional, written out so no node_modules is needed.
+parserPreset:
+  parserOpts:
+    headerPattern: '^(\w*)(?:\((.*)\))?!?: (.*)$'
+    headerCorrespondence:
+      - type
+      - scope
+      - subject
 rules:
   body-leading-blank: [1, always]
   body-max-line-length: [2, always, 100]
@@ -18,6 +25,8 @@ rules:
         # System
         - nix
         - darwin
+        - arch
+        - system-manager
         - home-manager
 
         # App

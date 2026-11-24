@@ -26,8 +26,6 @@
       ll = "eza --icons --long";
       lla = "eza --icons --long --all";
       lazygit = "LG_CONFIG_FILE=$LG_CONFIG_FILE lazygit";
-      hms = "nh home switch --ask $NH_FLAKE -- --impure";
-      drs = "nh darwin switch --ask $NH_FLAKE -- --impure";
     };
     plugins = with pkgs; [
       {

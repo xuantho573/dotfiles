@@ -1,3 +1,5 @@
 *.local.*
 .env
 .direnv/
+result
+result-*
