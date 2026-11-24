@@ -4,68 +4,69 @@ rules:
   body-max-line-length: [2, always, 100]
   footer-leading-blank: [1, always]
   footer-max-line-length: [2, always, 100]
-  header-max-length: [2, always, 100]
+  header-max-length: [2, always, 160]
   header-trim: [2, always]
   scope-enum:
     - 2
     - always
-    -
-      # Repo (dev shell, hooks, commitlint, direnv, justfile, README)
-      - repo
-      - repo/commitlint
+    - delimiters: [","]
+      scopes:
+        # Repo (dev shell, hooks, commitlint, direnv, justfile, README)
+        - repo
+        - repo/commitlint
 
-      # System
-      - nix
-      - darwin
-      - home-manager
+        # System
+        - nix
+        - darwin
+        - home-manager
 
-      # App
-      - neovim
-      # Neovim plugins
-      - neovim/blink
-      - neovim/bufferline
-      - neovim/catppuccin
-      - neovim/conform
-      - neovim/diffview
-      - neovim/gitsigns
-      - neovim/hardtime
-      - neovim/kulala
-      - neovim/lazy
-      - neovim/lazydev
-      - neovim/lualine
-      - neovim/mini
-      - neovim/noice
-      - neovim/nvim-colorizer
-      - neovim/nvim-lint
-      - neovim/nvim-lspconfig
-      - neovim/nvim-treesitter
-      - neovim/nvim-ts-autotag
-      - neovim/nvim-web-devicons
-      - neovim/obsidian
-      - neovim/oil
-      - neovim/rainbow-delimiters
-      - neovim/render-markdown
-      - neovim/snacks
-      - neovim/todo-comments
-      - neovim/ts-comments
-      - neovim/vim-tmux-navigator
-      - neovim/vimade
-      - neovim/which-key
+        # App
+        - neovim
+        # Neovim plugins
+        - neovim/blink
+        - neovim/bufferline
+        - neovim/catppuccin
+        - neovim/conform
+        - neovim/diffview
+        - neovim/gitsigns
+        - neovim/hardtime
+        - neovim/kulala
+        - neovim/lazy
+        - neovim/lazydev
+        - neovim/lualine
+        - neovim/mini
+        - neovim/noice
+        - neovim/nvim-colorizer
+        - neovim/nvim-lint
+        - neovim/nvim-lspconfig
+        - neovim/nvim-treesitter
+        - neovim/nvim-ts-autotag
+        - neovim/nvim-web-devicons
+        - neovim/obsidian
+        - neovim/oil
+        - neovim/rainbow-delimiters
+        - neovim/render-markdown
+        - neovim/snacks
+        - neovim/todo-comments
+        - neovim/ts-comments
+        - neovim/vim-tmux-navigator
+        - neovim/vimade
+        - neovim/which-key
 
-      - bat
-      - btop
-      - delta
-      - eza
-      - fastfetch
-      - kitty
-      - fzf
-      - lazydocker
-      - lazygit
-      - git
-      - starship
-      - tmux
-      - yazi
-      - zsh
+        - bat
+        - btop
+        - delta
+        - eza
+        - fastfetch
+        - kitty
+        - fzf
+        - lazydocker
+        - lazygit
+        - git
+        - starship
+        - tmux
+        - yazi
+        - zsh
   subject-case:
     - 2
     - never
