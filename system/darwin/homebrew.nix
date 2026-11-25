@@ -7,6 +7,7 @@
       "mermaid-cli"
     ];
     casks = [
+      "antigravity-cli"
       "claude-code"
       "font-sf-pro"
       "handbrake-app"
