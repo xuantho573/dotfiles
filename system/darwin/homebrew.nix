@@ -13,6 +13,7 @@
       "handbrake-app"
       "megasync"
       "slack"
+      "vorssaint"
       "zalo"
     ];
     onActivation.cleanup = "zap";
