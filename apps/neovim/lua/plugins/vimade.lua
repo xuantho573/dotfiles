@@ -4,11 +4,11 @@ return {
   opts = {
     recipe = { "minimalist", { animate = false } },
     ncmode = "buffers",
-    fadelevel = 0.4,
+    fadelevel = 0.2,
     tint = {
       bg = {
         rgb = { 128, 128, 128 },
-        intensity = 0.6,
+        intensity = 0.2,
       },
     },
     blocklist = {
