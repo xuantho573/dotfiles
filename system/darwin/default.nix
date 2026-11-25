@@ -54,6 +54,8 @@
 
   environment.systemPath = [
     "${config.homebrew.prefix}/bin"
+    "${homeDirectory}/.local/bin"
+    "${homeDirectory}/.volta/bin"
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
