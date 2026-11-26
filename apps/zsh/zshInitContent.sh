@@ -43,7 +43,12 @@ function change_background() {
     return
   fi
 
-  dasel put -f "$STARSHIP_CONFIG" -v $theme palette
+  local tmp_starship
+  tmp_starship="$(mktemp)"
+  if dasel -i toml --root "palette = \"$theme\"" <"$STARSHIP_CONFIG" >"$tmp_starship"; then
+    command cat -- "$tmp_starship" >"$STARSHIP_CONFIG"
+  fi
+  rm -f -- "$tmp_starship"
   git config --global delta.features $theme
   export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$theme_with_accent.yml
 }
