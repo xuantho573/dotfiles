@@ -49,7 +49,6 @@ function change_background() {
     command cat -- "$tmp_starship" >"$STARSHIP_CONFIG"
   fi
   rm -f -- "$tmp_starship"
-  git config --global delta.features $theme
   export LG_CONFIG_FILE=$LG_DIR/config.yml,$LG_DIR/$theme_with_accent.yml
 }
 

@@ -27,5 +27,10 @@ lib.mkIf pkgs.stdenv.isLinux {
     swaync.source = mkSymlink ../apps/swaync;
     waybar.source = mkSymlink ../apps/waybar;
     wlogout.source = mkSymlink ../apps/wlogout;
+    "xdg-desktop-portal/hyprland-portals.conf".text = ''
+      [preferred]
+      default=hyprland;gtk
+      org.freedesktop.impl.portal.Settings=gtk
+    '';
   };
 }
