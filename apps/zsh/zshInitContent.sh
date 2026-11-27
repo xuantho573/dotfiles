@@ -169,5 +169,13 @@ function _dotfiles() {
 }
 type compdef >/dev/null 2>&1 && compdef _dotfiles dotfiles
 
+function ssh() {
+  if [[ "$TERM" == "xterm-kitty" && -z "${TMUX:-}" ]] && command -v kitten >/dev/null 2>&1; then
+    kitten ssh "$@"
+  else
+    command ssh "$@"
+  fi
+}
+
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
